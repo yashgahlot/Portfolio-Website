@@ -61,6 +61,5 @@ That’s it.
 
 Halifax, Nova Scotia
 
----
 
 Feel free to explore or adapt the structure for your own portfolio.
