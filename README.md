@@ -58,6 +58,7 @@ That’s it.
 ## 👤 Author
 
 **Yash Gahlot**
+
 Halifax, Nova Scotia
 
 ---
