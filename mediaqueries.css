@@ -97,6 +97,23 @@
         font-size: 0.9rem;
     }
     
+    /* Skills ribbon mobile */
+    .skills-ribbon-container {
+        gap: 1rem;
+        margin: 2rem 0;
+    }
+    .ribbon-item {
+        font-size: 1rem;
+        padding: 0.4rem 1rem;
+    }
+    .ribbon-separator {
+        font-size: 1rem;
+        margin: 0 0.5rem;
+    }
+    .ribbon-track {
+        animation-duration: 20s;
+    }
+    
     /* AI Section mobile */
     .avatar-container-full {
         height: 250px;

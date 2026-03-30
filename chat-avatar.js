@@ -15,7 +15,7 @@ const avatarModels = [
 ];
 
 // ElevenLabs voice ID - Maksud (Diplomatic and Stoic)
-const ELEVENLABS_VOICE_ID = 'dfOWEyUEznl4YQ7UkcIF4';
+const ELEVENLABS_VOICE_ID = 'z9fAnlkpzviPz146aGWa';
 
 // Yash's information for AI context
 const yashInfo = {

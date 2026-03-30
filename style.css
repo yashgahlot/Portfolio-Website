@@ -423,10 +423,144 @@ section {
   margin: auto 0;
 }
 
-/* EXPERIENCE SECTION */
+/* EXPERIENCE/SKILLS SECTION */
 
 #experience {
   position: relative;
+  overflow: hidden;
+  min-height: fit-content;
+  height: auto;
+  padding-bottom: 4rem;
+}
+
+/* Skills Ribbon Animation */
+.skills-ribbon-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 3rem 0;
+  overflow: hidden;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.skills-ribbon {
+  overflow: hidden;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.skills-ribbon::before,
+.skills-ribbon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.skills-ribbon::before {
+  left: 0;
+  background: linear-gradient(to right, var(--background-color), transparent);
+}
+
+.skills-ribbon::after {
+  right: 0;
+  background: linear-gradient(to left, var(--background-color), transparent);
+}
+
+.ribbon-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: scroll-left 25s linear infinite;
+  width: max-content;
+}
+
+.ribbon-track.reverse {
+  animation: scroll-right 25s linear infinite;
+}
+
+.ribbon-item {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--secondary-color);
+  padding: 0.5rem 1.5rem;
+  background: var(--primary-color-2);
+  border: 1px solid var(--container-border);
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+}
+
+.ribbon-item:hover {
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+.ribbon-separator {
+  font-size: 1.25rem;
+  color: var(--primary-color-3);
+  margin: 0 1rem;
+  font-weight: 300;
+}
+
+/* Ribbon 1 - Frontend */
+.ribbon-1 {
+  background: linear-gradient(90deg, transparent, var(--primary-color-2) 10%, var(--primary-color-2) 90%, transparent);
+}
+
+.ribbon-1 .ribbon-item {
+  border-color: var(--secondary-color);
+}
+
+/* Ribbon 2 - Backend */
+.ribbon-2 {
+  background: linear-gradient(90deg, transparent, var(--primary-color-3) 10%, var(--primary-color-3) 90%, transparent);
+}
+
+.ribbon-2 .ribbon-item {
+  background: var(--background-color);
+}
+
+/* Ribbon 3 - Tools */
+.ribbon-3 {
+  background: linear-gradient(90deg, transparent, var(--primary-color-2) 10%, var(--primary-color-2) 90%, transparent);
+}
+
+/* Ribbon 4 - Soft Skills */
+.ribbon-4 {
+  background: linear-gradient(90deg, transparent, var(--primary-color-3) 10%, var(--primary-color-3) 90%, transparent);
+}
+
+.ribbon-4 .ribbon-item {
+  background: var(--background-color);
+  font-style: italic;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Pause animation on hover */
+.skills-ribbon:hover .ribbon-track {
+  animation-play-state: paused;
 }
 
 .experience-sub-title {
