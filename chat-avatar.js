@@ -2,13 +2,15 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-// Yash's information for AI responses
+// Yash's information for AI context
 const yashInfo = {
     name: "Yash Gahlot",
     location: "Halifax, NS",
     email: "0308264g@acadiau.ca",
     phone: "902-225-2984",
-    summary: "IT Support and Technical Operations professional with experience in incident management, system troubleshooting, and automation of business processes. Strong communicator who works effectively with both technical and non-technical stakeholders.",
+    linkedin: "https://www.linkedin.com/in/yashgahlot07/",
+    github: "https://www.github.com/yashgahlot/",
+    summary: "Software Developer and IT professional with experience in web development, data analytics, and technical support. Recently graduated with a Bachelor of Computer Science from Acadia University. Former President of the Acadia Students' Union, representing over 4,000 students.",
     education: "Bachelor of Computer Science from Acadia University, Nova Scotia, Canada. Graduated January 2026. Relevant coursework includes Software Engineering, Database Management, Data Structures & Algorithms II, AI & Machine Learning, Cybersecurity, and Networking.",
     experience: [
         {
@@ -17,8 +19,8 @@ const yashInfo = {
             location: "Halifax, NS",
             period: "Sep 2025 - Jan 2026",
             responsibilities: [
-                "Eliminated cross-system data discrepancies across Intrinsiq and HubSpot CRM by auditing and reconciling enrollment records",
-                "Boosted operational forecasting accuracy by building automated analytics workflows"
+                "Eliminated cross-system data discrepancies across Intrinsiq and HubSpot CRM",
+                "Built automated analytics workflows for enrollment trends"
             ]
         },
         {
@@ -27,9 +29,9 @@ const yashInfo = {
             location: "Wolfville, NS",
             period: "Nov 2024 - Apr 2025",
             responsibilities: [
-                "Oversaw technology systems and operations for a $5M+ organization serving 4,000+ students",
-                "Built consensus across university executives, government officials, and 10+ external partners",
-                "Represented 4,000 students at Nova Scotia Province House and the Canadian Parliament"
+                "Oversaw technology systems for a $5M+ organization serving 4,000+ students",
+                "Represented students at Nova Scotia Province House and Canadian Parliament",
+                "Built consensus across university executives and government officials"
             ]
         },
         {
@@ -38,9 +40,9 @@ const yashInfo = {
             location: "Wolfville, NS",
             period: "Apr 2024 - Dec 2024",
             responsibilities: [
-                "Improved report generation speed by 20% for 4 production dashboards by redesigning ETL pipelines",
-                "Delivered Power BI dashboards that centralized data from Orbis CRM and 3 enterprise databases",
-                "Reduced manual reporting hours by automating 5+ recurring data workflows in Python"
+                "Improved report generation speed by 20% by redesigning ETL pipelines",
+                "Delivered Power BI dashboards centralizing data from multiple databases",
+                "Automated 5+ recurring data workflows in Python"
             ]
         },
         {
@@ -49,9 +51,8 @@ const yashInfo = {
             location: "Wolfville, NS",
             period: "Apr 2024 - Dec 2025",
             responsibilities: [
-                "Supported 80+ students in object-oriented programming, APIs, and debugging",
-                "Conducted code reviews and debugging sessions",
-                "Accelerated student project delivery by pair-programming on cloud DB integration"
+                "Supported 80+ students in OOP, APIs, and debugging",
+                "Conducted code reviews and pair-programming sessions"
             ]
         },
         {
@@ -60,117 +61,156 @@ const yashInfo = {
             location: "Wolfville, NS",
             period: "Jan 2023 - Dec 2025",
             responsibilities: [
-                "Resolved 20+ hardware, software, and network incidents per shift",
-                "Supported enterprise systems by managing 10+ concurrent technical requests",
-                "Improved IT operations by documenting recurring issues"
+                "Resolved 20+ hardware/software incidents per shift",
+                "Managed 10+ concurrent technical requests across platforms"
             ]
         }
     ],
     projects: [
         {
             name: "Halifax Weather Mood",
-            tech: "React, JavaScript, UI/UX, Product Design",
-            description: "A user-facing web application that translates weather conditions into context-aware activity suggestions",
+            tech: "React, JavaScript, UI/UX",
+            description: "Web app translating weather into activity suggestions",
             link: "https://halifax-weather-mood-ashy.vercel.app/"
         },
         {
-            name: "Full-Stack Micro-Payment Platform",
-            tech: "React, Node.js, MongoDB, JWT, REST APIs",
-            description: "A full-stack micro-payment platform with secure JWT-based authentication and optimized database performance",
-            link: "https://github.com/yashgahlot"
+            name: "Sweetheart Strangers",
+            tech: "Web Development",
+            description: "Valentine's themed web application",
+            link: "https://sweetheart-strangers.netlify.app/"
+        },
+        {
+            name: "Get Me a Chai/Coffee",
+            tech: "Full-Stack Development",
+            description: "Micro-payment platform for buying coffee/chai",
+            link: "https://getmechai-ivory.vercel.app/"
         }
     ],
     skills: {
-        itOperations: "Incident Management, ITIL, IT Health Checks, System Monitoring, Root Cause Analysis",
-        technicalSupport: "Hardware Troubleshooting, Software Support, Network Troubleshooting, VPN, Email Systems, OS (Windows, macOS, Linux)",
-        automation: "Python, JavaScript, SQL, REST APIs, Process Automation",
+        development: ["HTML", "CSS", "SASS", "JavaScript", "TypeScript", "MaterialUI", "SQL", "Node.js", "Express.js", "Git", "Python", "Java"],
         tools: "Git, Docker, MongoDB, MySQL, Power BI, AWS (EC2, S3), Vercel",
-        soft: "Communication, Stakeholder Management, Problem Solving, Leadership, Cross-functional Collaboration, Time Management"
-    }
+        soft: "Communication, Leadership, Problem Solving, Cross-functional Collaboration"
+    },
+    interests: "Technology, software development, leadership, student advocacy, building products that simplify workflows",
+    funFacts: [
+        "Served as President of Students' Union representing 4,000+ students",
+        "Spoke at Nova Scotia Province House and Canadian Parliament",
+        "Love building products that connect people and simplify workflows",
+        "Passionate about turning ideas into practical applications"
+    ]
 };
 
-// AI Response Generator
-function generateResponse(question) {
+// AI Response Generator using OpenAI-compatible API
+async function generateAIResponse(question, conversationHistory) {
+    const systemPrompt = `You are Yash Gahlot's AI assistant on his portfolio website. You speak AS Yash in first person ("I", "my", "me").
+    
+Here's information about Yash to use in your responses:
+- Name: ${yashInfo.name}
+- Location: ${yashInfo.location}
+- Email: ${yashInfo.email}
+- Summary: ${yashInfo.summary}
+- Education: ${yashInfo.education}
+- Skills: Development - ${yashInfo.skills.development.join(", ")}. Tools - ${yashInfo.skills.tools}. Soft skills - ${yashInfo.skills.soft}
+- Work Experience: ${yashInfo.experience.map(e => `${e.title} at ${e.company} (${e.period})`).join("; ")}
+- Projects: ${yashInfo.projects.map(p => `${p.name} - ${p.description}`).join("; ")}
+- Interests: ${yashInfo.interests}
+- Fun Facts: ${yashInfo.funFacts.join(". ")}
+
+Guidelines:
+- Be conversational, friendly, and professional
+- Answer personal questions creatively while staying true to the professional persona
+- For technical questions, provide detailed but accessible answers
+- If asked about hiring, emphasize relevant skills and experience
+- Keep responses concise (2-4 sentences for simple questions, more for detailed ones)
+- You can make reasonable assumptions about personality based on the leadership roles and technical background
+- For questions you truly cannot answer, suggest contacting Yash directly`;
+
+    try {
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                messages: [
+                    { role: 'system', content: systemPrompt },
+                    ...conversationHistory,
+                    { role: 'user', content: question }
+                ]
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('API request failed');
+        }
+
+        const data = await response.json();
+        return data.message || data.content || generateFallbackResponse(question);
+    } catch (error) {
+        console.log('[v0] AI API error, using fallback:', error.message);
+        return generateFallbackResponse(question);
+    }
+}
+
+// Fallback response generator when AI API is unavailable
+function generateFallbackResponse(question) {
     const q = question.toLowerCase();
     
     // Skills
     if (q.includes('skill') || q.includes('technology') || q.includes('tech stack') || q.includes('what can you do') || q.includes('abilities')) {
-        return `Yash has a diverse skill set spanning multiple areas:
-
-**IT Operations & Support:** ${yashInfo.skills.itOperations}
-
-**Technical Support:** ${yashInfo.skills.technicalSupport}
-
-**Automation & Development:** ${yashInfo.skills.automation}
-
-**Tools & Platforms:** ${yashInfo.skills.tools}
-
-**Soft Skills:** ${yashInfo.skills.soft}
-
-He's particularly strong in Python, JavaScript, SQL, and has experience with cloud platforms like AWS and Vercel.`;
+        return `I have a diverse skill set! On the development side, I work with ${yashInfo.skills.development.slice(0, 6).join(", ")} and more. I'm also experienced with ${yashInfo.skills.tools}. Beyond technical skills, I've developed strong ${yashInfo.skills.soft.toLowerCase()} through my various roles.`;
     }
     
     // Experience
     if (q.includes('experience') || q.includes('work') || q.includes('job') || q.includes('career') || q.includes('position')) {
-        const expSummary = yashInfo.experience.map(e => 
-            `**${e.title}** at ${e.company} (${e.period})`
-        ).join('\n');
-        return `Yash has extensive professional experience:\n\n${expSummary}\n\nHis most notable role was as President of the Acadia Students' Union, where he oversaw a $5M+ organization and represented 4,000+ students at the provincial and federal level. Would you like more details about any specific role?`;
+        return `I've had several exciting roles! Most recently, I was an Enrollment Coordinator at Oxford International College. Before that, I served as President of the Acadia Students' Union, overseeing a $5M+ organization. I also worked as a Data Analyst Co-op, Teaching Assistant, and IT Helpdesk Support at Acadia University.`;
     }
     
     // Projects
     if (q.includes('project') || q.includes('portfolio') || q.includes('built') || q.includes('created') || q.includes('developed')) {
-        const projSummary = yashInfo.projects.map(p => 
-            `**${p.name}** - ${p.tech}\n${p.description}`
-        ).join('\n\n');
-        return `Here are some of Yash's notable projects:\n\n${projSummary}\n\nYou can check out the live demos and code on his portfolio!`;
+        return `I've worked on some fun projects! Halifax Weather Mood translates weather into activity suggestions, Sweetheart Strangers is a Valentine's themed app, and Get Me a Chai is a micro-payment platform for buying coffee. You can check out the live demos on my portfolio!`;
     }
     
     // Education
-    if (q.includes('education') || q.includes('degree') || q.includes('university') || q.includes('school') || q.includes('study') || q.includes('studied')) {
-        return `Yash holds a **Bachelor of Computer Science** from **Acadia University** in Nova Scotia, Canada (Graduated January 2026).\n\nRelevant coursework includes:\n- Software Engineering\n- Database Management\n- Data Structures & Algorithms II\n- AI & Machine Learning\n- Cybersecurity\n- Networking`;
+    if (q.includes('education') || q.includes('degree') || q.includes('university') || q.includes('school') || q.includes('study')) {
+        return `I graduated with a Bachelor of Computer Science from Acadia University in January 2026. My coursework covered Software Engineering, Database Management, AI & Machine Learning, Cybersecurity, and more.`;
     }
     
     // Contact
     if (q.includes('contact') || q.includes('email') || q.includes('reach') || q.includes('hire') || q.includes('connect')) {
-        return `You can reach Yash at:\n\n**Email:** ${yashInfo.email}\n**Phone:** ${yashInfo.phone}\n**Location:** ${yashInfo.location}\n\nFeel free to connect with him on LinkedIn or check out his GitHub for more of his work!`;
+        return `You can reach me at ${yashInfo.email} or connect with me on LinkedIn! I'm always open to discussing new opportunities and interesting projects.`;
     }
     
     // About/Who
-    if (q.includes('who is') || q.includes('about') || q.includes('tell me about yash') || q.includes('introduce')) {
-        return `${yashInfo.name} is an ${yashInfo.summary}\n\nHe recently graduated with a Bachelor of Computer Science from Acadia University and served as President of the Acadia Students' Union, representing over 4,000 students. His experience spans software development, data systems, and automation tools.`;
+    if (q.includes('who') || q.includes('about') || q.includes('tell me about') || q.includes('introduce') || q.includes('yourself')) {
+        return `I'm ${yashInfo.name}, a Software Developer based in ${yashInfo.location}. ${yashInfo.summary} I love building products that simplify workflows and connect people!`;
     }
     
-    // President/Leadership
+    // Leadership/President
     if (q.includes('president') || q.includes('leadership') || q.includes('lead') || q.includes('union')) {
-        const presRole = yashInfo.experience.find(e => e.title === 'President');
-        return `As **President of the Acadia Students' Union** (${presRole.period}), Yash:\n\n${presRole.responsibilities.map(r => `- ${r}`).join('\n')}\n\nThis role demonstrated his strong leadership, communication, and stakeholder management abilities.`;
+        return `As President of the Acadia Students' Union, I oversaw technology systems for a $5M+ organization serving 4,000+ students. I represented students at Nova Scotia Province House and the Canadian Parliament - it was an incredible experience in leadership and stakeholder management!`;
     }
     
-    // Data Analyst
-    if (q.includes('data') || q.includes('analyst') || q.includes('analytics') || q.includes('power bi') || q.includes('dashboard')) {
-        const dataRole = yashInfo.experience.find(e => e.title === 'Data Analyst Co-op');
-        return `As a **Data Analyst Co-op** at Acadia University (${dataRole.period}), Yash:\n\n${dataRole.responsibilities.map(r => `- ${r}`).join('\n')}\n\nHe specialized in ETL pipelines, SQL optimization, Power BI dashboards, and Python automation.`;
+    // Why hire
+    if (q.includes('why') && (q.includes('hire') || q.includes('choose') || q.includes('pick'))) {
+        return `I bring a unique combination of technical skills and leadership experience. I've built full-stack applications, optimized data pipelines, and led a $5M+ organization. I'm a problem solver who communicates effectively with both technical and non-technical stakeholders.`;
     }
     
-    // IT Support
-    if (q.includes('it support') || q.includes('helpdesk') || q.includes('technical support') || q.includes('troubleshoot')) {
-        const itRole = yashInfo.experience.find(e => e.title === 'IT Helpdesk Support');
-        return `As **IT Helpdesk Support** at Acadia University (${itRole.period}), Yash:\n\n${itRole.responsibilities.map(r => `- ${r}`).join('\n')}\n\nThis was his longest role, spanning nearly 3 years of hands-on technical support experience.`;
+    // Hobbies/Interests
+    if (q.includes('hobby') || q.includes('hobbies') || q.includes('interest') || q.includes('free time') || q.includes('fun')) {
+        return `I'm passionate about technology and building products that make a difference! Outside of coding, I enjoy leadership activities and student advocacy. I find it rewarding to turn ideas into practical applications that help people.`;
     }
     
-    // Hello/greeting
+    // Greeting
     if (q.includes('hello') || q.includes('hi') || q.includes('hey') || q === 'yo' || q.includes('greetings')) {
-        return `Hello! I'm Yash's AI assistant. I can tell you about his:\n\n- **Skills** and technical expertise\n- **Work experience** and career history\n- **Projects** he's built\n- **Education** background\n- **Contact** information\n\nWhat would you like to know?`;
+        return `Hey there! Great to meet you! I'm Yash's AI assistant - ask me anything about my skills, experience, projects, or even personal questions. What would you like to know?`;
     }
     
     // Thank you
-    if (q.includes('thank') || q.includes('thanks')) {
-        return `You're welcome! Feel free to ask any other questions about Yash's experience, skills, or projects. I'm here to help!`;
+    if (q.includes('thank')) {
+        return `You're welcome! Feel free to ask me anything else - whether it's about my technical skills, work experience, or just want to chat!`;
     }
     
-    // Default response
-    return `That's a great question! While I may not have specific information about that, I can tell you about Yash's:\n\n- **Skills** - Technical and soft skills\n- **Work Experience** - From IT Support to President of Students' Union\n- **Projects** - Web apps and full-stack platforms\n- **Education** - Bachelor's in Computer Science\n- **Contact Info** - How to reach him\n\nWhat would you like to explore?`;
+    // Default
+    return `That's an interesting question! While I'd love to give you a perfect answer, I might need more context. Feel free to ask about my skills, experience, projects, education, or anything else - or reach out to me directly at ${yashInfo.email}!`;
 }
 
 // Three.js Avatar Setup
@@ -189,8 +229,8 @@ function initAvatar() {
     scene.background = null;
     
     // Camera
-    camera = new THREE.PerspectiveCamera(35, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.set(0, 1.2, 3);
+    camera = new THREE.PerspectiveCamera(30, container.clientWidth / container.clientHeight, 0.1, 1000);
+    camera.position.set(0, 1.4, 4);
     
     // Renderer
     renderer = new THREE.WebGLRenderer({ 
@@ -203,14 +243,14 @@ function initAvatar() {
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     
     // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambientLight);
     
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
     directionalLight.position.set(5, 10, 7);
     scene.add(directionalLight);
     
-    const fillLight = new THREE.DirectionalLight(0xffffff, 0.3);
+    const fillLight = new THREE.DirectionalLight(0xffffff, 0.4);
     fillLight.position.set(-5, 5, -5);
     scene.add(fillLight);
     
@@ -221,8 +261,8 @@ function initAvatar() {
     controls.enableZoom = false;
     controls.enablePan = false;
     controls.minPolarAngle = Math.PI / 3;
-    controls.maxPolarAngle = Math.PI / 2;
-    controls.target.set(0, 1, 0);
+    controls.maxPolarAngle = Math.PI / 1.8;
+    controls.target.set(0, 1.2, 0);
     
     // Load Model
     const loader = new GLTFLoader();
@@ -237,23 +277,26 @@ function initAvatar() {
             // Setup animations if available
             if (gltf.animations && gltf.animations.length > 0) {
                 mixer = new THREE.AnimationMixer(model);
+                // Play the first animation (usually idle)
                 const idleAction = mixer.clipAction(gltf.animations[0]);
                 idleAction.play();
             }
             
             isAvatarLoaded = true;
-            document.querySelector('.avatar-loading').style.display = 'none';
-            
-            // Subtle floating animation
-            animateFloat();
+            const loadingEl = document.querySelector('.avatar-loading');
+            if (loadingEl) loadingEl.style.display = 'none';
         },
         (progress) => {
-            const percent = (progress.loaded / progress.total * 100).toFixed(0);
-            document.querySelector('.avatar-loading').textContent = `Loading avatar... ${percent}%`;
+            const loadingEl = document.querySelector('.avatar-loading');
+            if (loadingEl && progress.total > 0) {
+                const percent = (progress.loaded / progress.total * 100).toFixed(0);
+                loadingEl.textContent = `Loading 3D Avatar... ${percent}%`;
+            }
         },
         (error) => {
-            console.error('Error loading avatar:', error);
-            document.querySelector('.avatar-loading').textContent = 'Avatar unavailable';
+            console.error('[v0] Error loading avatar:', error);
+            const loadingEl = document.querySelector('.avatar-loading');
+            if (loadingEl) loadingEl.textContent = 'Avatar unavailable';
         }
     );
     
@@ -261,16 +304,6 @@ function initAvatar() {
     
     // Handle resize
     window.addEventListener('resize', onWindowResize);
-}
-
-function animateFloat() {
-    if (!model) return;
-    
-    const time = Date.now() * 0.001;
-    model.position.y = Math.sin(time) * 0.05;
-    model.rotation.y = Math.sin(time * 0.5) * 0.1;
-    
-    requestAnimationFrame(animateFloat);
 }
 
 function onWindowResize() {
@@ -295,6 +328,7 @@ function animate() {
 // Chat functionality
 let isVoiceEnabled = true;
 let speechSynthesis = window.speechSynthesis;
+let conversationHistory = [];
 
 function speakText(text) {
     if (!isVoiceEnabled || !speechSynthesis) return;
@@ -318,21 +352,15 @@ function speakText(text) {
     
     // Try to get a good voice
     const voices = speechSynthesis.getVoices();
-    const preferredVoice = voices.find(v => v.name.includes('Google') || v.name.includes('Daniel') || v.name.includes('Alex'));
+    const preferredVoice = voices.find(v => 
+        v.name.includes('Google') || 
+        v.name.includes('Daniel') || 
+        v.name.includes('Alex') ||
+        v.name.includes('Male')
+    );
     if (preferredVoice) utterance.voice = preferredVoice;
     
     speechSynthesis.speak(utterance);
-    
-    // Avatar animation while speaking
-    if (model) {
-        const talkInterval = setInterval(() => {
-            if (!speechSynthesis.speaking) {
-                clearInterval(talkInterval);
-                return;
-            }
-            model.rotation.z = (Math.random() - 0.5) * 0.02;
-        }, 100);
-    }
 }
 
 function formatMessage(text) {
@@ -349,12 +377,23 @@ function addMessage(text, isUser = false) {
     messagesContainer.appendChild(messageDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
     
+    // Add to conversation history
+    conversationHistory.push({
+        role: isUser ? 'user' : 'assistant',
+        content: text
+    });
+    
+    // Keep conversation history reasonable
+    if (conversationHistory.length > 20) {
+        conversationHistory = conversationHistory.slice(-20);
+    }
+    
     if (!isUser) {
         speakText(text);
     }
 }
 
-function handleSendMessage() {
+async function handleSendMessage() {
     const input = document.getElementById('chat-input');
     const message = input.value.trim();
     
@@ -371,61 +410,61 @@ function handleSendMessage() {
     messagesContainer.appendChild(typingDiv);
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
     
-    // Generate response with slight delay
-    setTimeout(() => {
+    // Generate AI response
+    try {
+        const response = await generateAIResponse(message, conversationHistory.slice(-10));
         typingDiv.remove();
-        const response = generateResponse(message);
         addMessage(response);
-    }, 800 + Math.random() * 500);
+    } catch (error) {
+        typingDiv.remove();
+        addMessage(generateFallbackResponse(message));
+    }
 }
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    const chatToggle = document.getElementById('chat-toggle');
-    const chatContainer = document.getElementById('chat-container');
     const voiceToggle = document.getElementById('voice-toggle');
+    const voiceLabel = document.querySelector('.voice-label');
     const sendBtn = document.getElementById('send-btn');
     const chatInput = document.getElementById('chat-input');
-    const suggestionBtns = document.querySelectorAll('.suggestion-btn');
+    const suggestionBtns = document.querySelectorAll('.suggestion-btn-full');
     
-    let isOpen = false;
-    let avatarInitialized = false;
-    
-    // Toggle chat
-    chatToggle.addEventListener('click', () => {
-        isOpen = !isOpen;
-        chatContainer.classList.toggle('open', isOpen);
-        chatToggle.classList.toggle('active', isOpen);
-        
-        if (isOpen && !avatarInitialized) {
-            setTimeout(() => {
-                initAvatar();
-                avatarInitialized = true;
-            }, 100);
-        }
-    });
+    // Initialize avatar immediately
+    initAvatar();
     
     // Voice toggle
-    voiceToggle.addEventListener('click', () => {
-        isVoiceEnabled = !isVoiceEnabled;
-        voiceToggle.classList.toggle('muted', !isVoiceEnabled);
-        if (!isVoiceEnabled) {
-            speechSynthesis.cancel();
-        }
-    });
+    if (voiceToggle) {
+        voiceToggle.addEventListener('click', () => {
+            isVoiceEnabled = !isVoiceEnabled;
+            voiceToggle.classList.toggle('muted', !isVoiceEnabled);
+            if (voiceLabel) {
+                voiceLabel.textContent = isVoiceEnabled ? 'Voice On' : 'Voice Off';
+            }
+            if (!isVoiceEnabled && speechSynthesis) {
+                speechSynthesis.cancel();
+            }
+        });
+    }
     
     // Send message
-    sendBtn.addEventListener('click', handleSendMessage);
-    chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') handleSendMessage();
-    });
+    if (sendBtn) {
+        sendBtn.addEventListener('click', handleSendMessage);
+    }
+    
+    if (chatInput) {
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSendMessage();
+        });
+    }
     
     // Suggestion buttons
     suggestionBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             const question = btn.getAttribute('data-question');
-            chatInput.value = question;
-            handleSendMessage();
+            if (chatInput) {
+                chatInput.value = question;
+                handleSendMessage();
+            }
         });
     });
     

@@ -54,6 +54,17 @@
     .work-period {
         align-self: flex-start;
     }
+    /* AI Section responsive */
+    .ai-section-container {
+        flex-direction: column;
+    }
+    .avatar-section {
+        flex: none;
+        width: 100%;
+    }
+    .avatar-container-full {
+        height: 300px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -78,27 +89,20 @@
         font-size: 0.9rem;
     }
     
-    /* Chat widget mobile */
-    .chat-widget {
-        bottom: 1rem;
-        right: 1rem;
+    /* AI Section mobile */
+    .avatar-container-full {
+        height: 250px;
     }
-    .chat-toggle {
-        width: 54px;
-        height: 54px;
+    .chat-messages-full {
+        min-height: 200px;
+        max-height: 300px;
     }
-    .chat-container {
-        width: calc(100vw - 2rem);
-        max-width: 380px;
-        max-height: 70vh;
-        bottom: 70px;
-        right: 0;
+    .suggested-questions-full {
+        padding: 0.75rem 1rem;
     }
-    .avatar-container {
-        height: 140px;
-    }
-    .chat-messages {
-        max-height: 150px;
+    .suggestion-btn-full {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
     }
     #contact,
     footer {

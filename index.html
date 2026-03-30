@@ -17,6 +17,7 @@
             <li><a href="#experience">Skills</a></li>
             <li><a href="#work-experience">Work</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#ai-assistant">AI Chat</a></li>
             <li><a href="#contact">Contact</a></li>
             <li>
                 <img 
@@ -43,6 +44,7 @@
             <li><a href="#experience" onclick="toggleMenu()">Skills</a></li>
             <li><a href="#work-experience" onclick="toggleMenu()">Work</a></li>
             <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="#ai-assistant" onclick="toggleMenu()">AI Chat</a></li>
             <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
             <li>
                 <img 
@@ -481,8 +483,69 @@
     src-dark="./assets/arrow_dark.png" 
         alt="Arrow icon" 
         class="icon arrow"
-        onclick="location.href='./#contact'">
+        onclick="location.href='./#ai-assistant'">
     </section>
+
+    <section id="ai-assistant" class="reveal">
+        <p class="section__text__p1">Chat with My</p>
+        <h1 class="title">AI Assistant</h1>
+        <div class="ai-section-container">
+            <div class="avatar-section">
+                <div id="avatar-container" class="avatar-container-full">
+                    <canvas id="avatar-canvas"></canvas>
+                    <div class="avatar-loading">Loading 3D Avatar...</div>
+                </div>
+                <div class="avatar-info">
+                    <h3>Yash's Digital Twin</h3>
+                    <p>Ask me anything - about Yash's experience, projects, or even personal questions!</p>
+                    <button id="voice-toggle" class="voice-toggle-btn" aria-label="Toggle voice responses">
+                        <svg class="voice-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <svg class="voice-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <line x1="23" y1="9" x2="17" y2="15"></line>
+                            <line x1="17" y1="9" x2="23" y2="15"></line>
+                        </svg>
+                        <span class="voice-label">Voice On</span>
+                    </button>
+                </div>
+            </div>
+            <div class="chat-section">
+                <div id="chat-messages" class="chat-messages-full">
+                    <div class="message assistant">
+                        <p>Hi there! I'm Yash's AI assistant. Ask me anything about his experience, skills, projects, or even personal questions - I'm powered by AI so I can have real conversations!</p>
+                    </div>
+                </div>
+                <div class="suggested-questions-full">
+                    <button class="suggestion-btn-full" data-question="What are Yash's main skills?">Skills</button>
+                    <button class="suggestion-btn-full" data-question="Tell me about Yash's work experience">Experience</button>
+                    <button class="suggestion-btn-full" data-question="What projects has Yash worked on?">Projects</button>
+                    <button class="suggestion-btn-full" data-question="What is Yash's educational background?">Education</button>
+                    <button class="suggestion-btn-full" data-question="What are Yash's hobbies and interests?">Interests</button>
+                    <button class="suggestion-btn-full" data-question="Why should I hire Yash?">Why Hire</button>
+                </div>
+                <div class="chat-input-full">
+                    <input type="text" id="chat-input" placeholder="Ask me anything..." aria-label="Type your message">
+                    <button id="send-btn" class="send-btn-full" aria-label="Send message">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <img 
+            src="./assets/arrow_light.png" 
+            src-light="./assets/arrow_light.png" 
+            src-dark="./assets/arrow_dark.png" 
+            alt="Arrow icon" 
+            class="icon arrow"
+            onclick="location.href='./#contact'">
+    </section>
+
     <section id="contact" class="reveal">
         <p class="section__text__p1">Get in Touch</p>
         <h1 class="title">Contact Me</h1>
@@ -522,72 +585,13 @@
                         <li><a href="#experience">Skills</a></li>
                         <li><a href="#work-experience">Work</a></li>
                         <li><a href="#projects">Projects</a></li>
+                        <li><a href="#ai-assistant">AI Chat</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
             </nav>
             <p>Copyright &#169; 2024 Yash Gahlot. All Rights Reserved.</p>
         </footer>
-    <!-- 3D Avatar Chat Widget -->
-    <div id="chat-widget" class="chat-widget">
-        <button id="chat-toggle" class="chat-toggle" aria-label="Open chat with Yash's AI Assistant">
-            <svg class="chat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            </svg>
-            <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
-        
-        <div id="chat-container" class="chat-container">
-            <div class="chat-header">
-                <div class="chat-header-info">
-                    <h3>Chat with Yash's AI</h3>
-                    <span class="status-indicator">Online</span>
-                </div>
-                <button id="voice-toggle" class="voice-toggle" aria-label="Toggle voice responses">
-                    <svg class="voice-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                    </svg>
-                    <svg class="voice-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                        <line x1="23" y1="9" x2="17" y2="15"></line>
-                        <line x1="17" y1="9" x2="23" y2="15"></line>
-                    </svg>
-                </button>
-            </div>
-            
-            <div id="avatar-container" class="avatar-container">
-                <canvas id="avatar-canvas"></canvas>
-                <div class="avatar-loading">Loading avatar...</div>
-            </div>
-            
-            <div id="chat-messages" class="chat-messages">
-                <div class="message assistant">
-                    <p>Hi there! I'm Yash's AI assistant. Ask me anything about his experience, skills, or projects!</p>
-                </div>
-            </div>
-            
-            <div class="suggested-questions">
-                <button class="suggestion-btn" data-question="What are Yash's main skills?">Skills</button>
-                <button class="suggestion-btn" data-question="Tell me about Yash's work experience">Work Experience</button>
-                <button class="suggestion-btn" data-question="What projects has Yash worked on?">Projects</button>
-                <button class="suggestion-btn" data-question="What is Yash's educational background?">Education</button>
-            </div>
-            
-            <div class="chat-input-container">
-                <input type="text" id="chat-input" placeholder="Type your question..." aria-label="Type your message">
-                <button id="send-btn" class="send-btn" aria-label="Send message">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="22" y1="2" x2="11" y2="13"></line>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </div>
 
     <script type="importmap">
     {
