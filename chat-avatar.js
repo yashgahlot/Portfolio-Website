@@ -14,8 +14,8 @@ const avatarModels = [
     './assets/avatar-model-8.glb'
 ];
 
-// ElevenLabs voice ID - Maksud (Diplomatic and Stoic)
-const ELEVENLABS_VOICE_ID = 'z9fAnlkpzviPz146aGWa';
+// ElevenLabs voice ID - Josh (Conversational and Engaging)
+const ELEVENLABS_VOICE_ID = 'TxGEqnHWrfWFTfGW9XjX';
 
 // Yash's information for AI context
 const yashInfo = {
@@ -248,7 +248,7 @@ function generateFallbackResponse(question) {
     
     // Why hire
     if (q.includes('why') && (q.includes('hire') || q.includes('choose') || q.includes('pick'))) {
-        return `I bring a unique blend of technical expertise and leadership experience. I've built full-stack applications, optimized data pipelines by 20%, and led a $5M+ organization. I'm a problem solver who thrives in collaborative environments and communicates effectively with diverse stakeholders.`;
+        return `Here's the thing - I'm not just a developer who writes code. I've actually led a $5M+ organization representing 4,000 students, spoken at the Canadian Parliament, and built real products that solve real problems. I improved data pipeline efficiency by 20% at my co-op, built StoryFlight and CityPulse from scratch, and I genuinely love turning complex challenges into elegant solutions. What sets me apart? I bridge the gap between technical execution and strategic thinking. I can talk to executives about business impact AND dive deep into code architecture. I'm hungry to learn, I ship fast, and I actually care about the user experience. Plus, I'm fun to work with - ask anyone who's collaborated with me!`;
     }
     
     // Hobbies/Interests/Personal
