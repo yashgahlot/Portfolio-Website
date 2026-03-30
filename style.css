@@ -486,58 +486,122 @@ section {
 .ribbon-item {
   font-size: 1.5rem;
   font-weight: 600;
-  color: var(--secondary-color);
   padding: 0.5rem 1.5rem;
-  background: var(--primary-color-2);
-  border: 1px solid var(--container-border);
   border-radius: 2rem;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ribbon-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.ribbon-item:hover::before {
+  left: 100%;
 }
 
 .ribbon-item:hover {
-  background: var(--secondary-color);
-  color: var(--primary-color);
-  transform: scale(1.05);
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .ribbon-separator {
-  font-size: 1.25rem;
-  color: var(--primary-color-3);
-  margin: 0 1rem;
-  font-weight: 300;
+  font-size: 1.5rem;
+  margin: 0 0.75rem;
+  font-weight: 400;
+  opacity: 0.6;
 }
 
-/* Ribbon 1 - Frontend */
+/* Ribbon 1 - Frontend (Blue tones) */
 .ribbon-1 {
-  background: linear-gradient(90deg, transparent, var(--primary-color-2) 10%, var(--primary-color-2) 90%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1) 10%, rgba(59, 130, 246, 0.1) 90%, transparent);
 }
 
 .ribbon-1 .ribbon-item {
-  border-color: var(--secondary-color);
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
 }
 
-/* Ribbon 2 - Backend */
+.ribbon-1 .ribbon-item:hover {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.6);
+}
+
+.ribbon-1 .ribbon-separator {
+  color: #3b82f6;
+}
+
+/* Ribbon 2 - Backend (Green tones) */
 .ribbon-2 {
-  background: linear-gradient(90deg, transparent, var(--primary-color-3) 10%, var(--primary-color-3) 90%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.1) 10%, rgba(34, 197, 94, 0.1) 90%, transparent);
 }
 
 .ribbon-2 .ribbon-item {
-  background: var(--background-color);
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
 }
 
-/* Ribbon 3 - Tools */
+.ribbon-2 .ribbon-item:hover {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  box-shadow: 0 8px 30px rgba(34, 197, 94, 0.6);
+}
+
+.ribbon-2 .ribbon-separator {
+  color: #22c55e;
+}
+
+/* Ribbon 3 - Tools (Orange/Amber tones) */
 .ribbon-3 {
-  background: linear-gradient(90deg, transparent, var(--primary-color-2) 10%, var(--primary-color-2) 90%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.1) 10%, rgba(245, 158, 11, 0.1) 90%, transparent);
 }
 
-/* Ribbon 4 - Soft Skills */
+.ribbon-3 .ribbon-item {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.ribbon-3 .ribbon-item:hover {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  box-shadow: 0 8px 30px rgba(245, 158, 11, 0.6);
+}
+
+.ribbon-3 .ribbon-separator {
+  color: #f59e0b;
+}
+
+/* Ribbon 4 - Soft Skills (Rose/Pink tones) */
 .ribbon-4 {
-  background: linear-gradient(90deg, transparent, var(--primary-color-3) 10%, var(--primary-color-3) 90%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(244, 63, 94, 0.1) 10%, rgba(244, 63, 94, 0.1) 90%, transparent);
 }
 
 .ribbon-4 .ribbon-item {
-  background: var(--background-color);
-  font-style: italic;
+  background: linear-gradient(135deg, #f43f5e, #e11d48);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4);
+}
+
+.ribbon-4 .ribbon-item:hover {
+  background: linear-gradient(135deg, #fb7185, #f43f5e);
+  box-shadow: 0 8px 30px rgba(244, 63, 94, 0.6);
+}
+
+.ribbon-4 .ribbon-separator {
+  color: #f43f5e;
 }
 
 @keyframes scroll-left {
@@ -561,6 +625,46 @@ section {
 /* Pause animation on hover */
 .skills-ribbon:hover .ribbon-track {
   animation-play-state: paused;
+}
+
+/* Subtle glow pulse on ribbons */
+.ribbon-1 .ribbon-item {
+  animation: glow-blue 3s ease-in-out infinite alternate;
+}
+
+.ribbon-2 .ribbon-item {
+  animation: glow-green 3s ease-in-out infinite alternate;
+  animation-delay: 0.5s;
+}
+
+.ribbon-3 .ribbon-item {
+  animation: glow-amber 3s ease-in-out infinite alternate;
+  animation-delay: 1s;
+}
+
+.ribbon-4 .ribbon-item {
+  animation: glow-rose 3s ease-in-out infinite alternate;
+  animation-delay: 1.5s;
+}
+
+@keyframes glow-blue {
+  0% { box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); }
+  100% { box-shadow: 0 4px 25px rgba(59, 130, 246, 0.7); }
+}
+
+@keyframes glow-green {
+  0% { box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4); }
+  100% { box-shadow: 0 4px 25px rgba(34, 197, 94, 0.7); }
+}
+
+@keyframes glow-amber {
+  0% { box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4); }
+  100% { box-shadow: 0 4px 25px rgba(245, 158, 11, 0.7); }
+}
+
+@keyframes glow-rose {
+  0% { box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4); }
+  100% { box-shadow: 0 4px 25px rgba(244, 63, 94, 0.7); }
 }
 
 .experience-sub-title {
