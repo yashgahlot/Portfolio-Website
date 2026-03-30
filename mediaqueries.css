@@ -45,6 +45,11 @@
     .about-containers {
         margin-top: 0;
     }
+    /* About slideshow responsive */
+    .about-slideshow-container {
+        width: 275px;
+        height: 275px;
+    }
 }
 
 @media screen and (max-width: 900px) {
@@ -155,5 +160,34 @@
     }
     .text-container {
         text-align: justify;
+    }
+    /* About slideshow mobile */
+    .about-slideshow-container {
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+        margin: 0 auto 1rem;
+    }
+    .slideshow-dots {
+        gap: 0.35rem;
+    }
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+    /* Projects slideshow mobile */
+    .projects-slideshow-wrapper {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .projects-nav {
+        width: 40px;
+        height: 40px;
+    }
+    .projects-prev, .projects-next {
+        display: none;
+    }
+    .project-slide .project-img {
+        height: 180px;
     }
 }

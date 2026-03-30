@@ -70,9 +70,26 @@ const yashInfo = {
                 "Supported 80+ students in debugging, APIs, and system logic",
                 "Conducted structured code reviews and troubleshooting sessions"
             ]
+        },
+        {
+            title: "IT Helpdesk Support",
+            company: "Acadia University",
+            location: "Wolfville, NS",
+            period: "Jan 2023 - Dec 2025",
+            responsibilities: [
+                "Resolved 20+ hardware, software, and network incidents per shift",
+                "Supported enterprise systems by managing 10+ concurrent technical requests",
+                "Improved IT operations by documenting recurring issues"
+            ]
         }
     ],
     projects: [
+        {
+            name: "CityPulse",
+            tech: "Full-Stack, Real-time Data",
+            description: "Real-time intelligence for city operations - track and resolve municipal service requests",
+            link: "https://city-pulse-web-two.vercel.app/"
+        },
         {
             name: "StoryFlight",
             tech: "Full-Stack, AI",

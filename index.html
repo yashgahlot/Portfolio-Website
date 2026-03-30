@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Yash Gahlot | Portfolio</title>
     <link rel="stylesheet" href="style.css" >
     <link rel="stylesheet" href="mediaqueries.css" >
 </head>
@@ -14,10 +14,10 @@
         <div>
             <ul class="nav-links">
             <li><a href="#about">About</a></li>
-            <li><a href="#experience">Skills</a></li>
+            <li><a href="#ai-assistant">AI Chat</a></li>
             <li><a href="#work-experience">Work</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#ai-assistant">AI Chat</a></li>
+            <li><a href="#experience">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
             <li>
                 <img 
@@ -41,10 +41,10 @@
         </div>
         <div class="menu-links">
             <li><a href="#about" onclick="toggleMenu()">About</a></li>
-            <li><a href="#experience" onclick="toggleMenu()">Skills</a></li>
+            <li><a href="#ai-assistant" onclick="toggleMenu()">AI Chat</a></li>
             <li><a href="#work-experience" onclick="toggleMenu()">Work</a></li>
             <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-            <li><a href="#ai-assistant" onclick="toggleMenu()">AI Chat</a></li>
+            <li><a href="#experience" onclick="toggleMenu()">Skills</a></li>
             <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
             <li>
                 <img 
@@ -58,6 +58,8 @@
         </div>
     </div>
     </nav>
+
+    <!-- HERO SECTION -->
     <section id="profile" class="reveal">
         <div class="section__pic-container">
             <img src="./assets/profilepic-final.png" alt="Yash Gahlot profile Picture" class="float reveal reveal-delay-2">
@@ -85,9 +87,6 @@
                 alt="My Linkedin Profile" 
                 class="icon LinkedIn-icon" 
                 onclick="location.href='https://www.linkedin.com/in/yashgahlot07/'">
-                <!-- <img src="./assets/github.png" 
-                alt="My Github Profile" 
-                class="icon" onclick="location.href='https://github.com/yashgahlot'"> -->
                 <img 
                 src="./assets/github_light.png"
                 src-light="./assets/github_light.png" 
@@ -96,18 +95,43 @@
                 class="icon github-icon" 
                 onclick="location.href='https://www.github.com/yashgahlot/'">
             </div>
-            
         </div>
     </section>
+
+    <!-- ABOUT SECTION -->
     <section id="about" class="reveal">
         <p class="section__text__p1">Get to know more</p>
         <h1 class="title">About Me</h1>
         <div class="section-container">
-        <div class="section__pic-container">
-            <img 
-            src="./assets/IMG_7018 (1).png" 
-            alt="Profile picture" 
-            class="about-pic"> 
+        <div class="section__pic-container about-slideshow-container">
+            <div class="about-slideshow">
+                <img src="./assets/IMG_7018 (1).png" alt="Yash profile" class="about-slide active">
+                <img src="./assets/about-slide-1.jpeg" alt="Yash at CASA conference" class="about-slide">
+                <img src="./assets/about-slide-2.jpeg" alt="Yash in meeting" class="about-slide">
+                <img src="./assets/about-slide-3.jpeg" alt="Yash in helicopter" class="about-slide">
+                <img src="./assets/about-slide-4.jpeg" alt="Yash at Universities Canada" class="about-slide">
+                <img src="./assets/about-slide-5.jpeg" alt="Yash with colleagues" class="about-slide">
+                <img src="./assets/about-slide-6.jpeg" alt="Yash at StudentsNS" class="about-slide">
+                <img src="./assets/about-slide-7.jpeg" alt="Yash at Universities Canada" class="about-slide">
+                <img src="./assets/about-slide-8.jpeg" alt="Yash in meeting room" class="about-slide">
+                <img src="./assets/about-slide-9.jpeg" alt="Yash speaking" class="about-slide">
+                <img src="./assets/about-slide-10.jpeg" alt="Yash group photo" class="about-slide">
+                <img src="./assets/about-slide-11.jpeg" alt="Yash graduation" class="about-slide">
+            </div>
+            <div class="slideshow-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+                <span class="dot" data-index="3"></span>
+                <span class="dot" data-index="4"></span>
+                <span class="dot" data-index="5"></span>
+                <span class="dot" data-index="6"></span>
+                <span class="dot" data-index="7"></span>
+                <span class="dot" data-index="8"></span>
+                <span class="dot" data-index="9"></span>
+                <span class="dot" data-index="10"></span>
+                <span class="dot" data-index="11"></span>
+            </div>
         </div>
         <div class="about-details-container">
             <div class="about-containers">
@@ -134,7 +158,7 @@
                 </div>
             </div>
             <div class="text-container">
-                <p>Welcome to my portfolio website! I recently graduated with a Bachelor of Computer Science from Acadia University. Alongside my studies, I served as President of the Acadia Students’ Union, representing over 4,000 students and advocating at the Nova Scotia Legislature and the Canadian Parliament. My work spans software development, data systems, and automation tools. I enjoy building products that simplify workflows, connect people, and turn ideas into practical applications. My experience across technical roles, leadership, and collaborative projects has helped me develop strong problem-solving, communication, and leadership skills.
+                <p>Welcome to my portfolio website! I recently graduated with a Bachelor of Computer Science from Acadia University. Alongside my studies, I served as President of the Acadia Students' Union, representing over 4,000 students and advocating at the Nova Scotia Legislature and the Canadian Parliament. My work spans software development, data systems, and automation tools. I enjoy building products that simplify workflows, connect people, and turn ideas into practical applications. My experience across technical roles, leadership, and collaborative projects has helped me develop strong problem-solving, communication, and leadership skills.
                     </p>
             </div>
         </div>
@@ -145,9 +169,281 @@
     src-dark="./assets/arrow_dark.png" 
     alt="Arrow icon" 
     class="icon arrow"
-    onclick="location.href='./#experience'">
-
+    onclick="location.href='./#ai-assistant'">
     </section>
+
+    <!-- AI ASSISTANT SECTION -->
+    <section id="ai-assistant" class="reveal">
+        <p class="section__text__p1">Chat with My</p>
+        <h1 class="title">AI Assistant</h1>
+        <div class="ai-section-container">
+            <div class="avatar-section">
+                <div id="avatar-container" class="avatar-container-full">
+                    <canvas id="avatar-canvas"></canvas>
+                    <div class="avatar-loading">Loading 3D Avatar...</div>
+                </div>
+                <div class="avatar-info">
+                    <h3>Yash's Digital Twin</h3>
+                    <p>Ask me anything - about Yash's experience, projects, or even personal questions!</p>
+                    <button id="voice-toggle" class="voice-toggle-btn" aria-label="Toggle voice responses">
+                        <svg class="voice-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                        </svg>
+                        <svg class="voice-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                            <line x1="23" y1="9" x2="17" y2="15"></line>
+                            <line x1="17" y1="9" x2="23" y2="15"></line>
+                        </svg>
+                        <span class="voice-label">Voice On</span>
+                    </button>
+                </div>
+            </div>
+            <div class="chat-section">
+                <div id="chat-messages" class="chat-messages-full">
+                    <div class="message assistant">
+                        <p>Hi there! I'm Yash's AI assistant. Ask me anything about his experience, skills, projects, or even personal questions - I'm powered by AI so I can have real conversations!</p>
+                    </div>
+                </div>
+                <div class="suggested-questions-full">
+                    <button class="suggestion-btn-full" data-question="What are Yash's main skills?">Skills</button>
+                    <button class="suggestion-btn-full" data-question="Tell me about Yash's work experience">Experience</button>
+                    <button class="suggestion-btn-full" data-question="What projects has Yash worked on?">Projects</button>
+                    <button class="suggestion-btn-full" data-question="What is Yash's educational background?">Education</button>
+                    <button class="suggestion-btn-full" data-question="What are Yash's hobbies and interests?">Interests</button>
+                    <button class="suggestion-btn-full" data-question="Why should I hire Yash?">Why Hire</button>
+                </div>
+                <div class="chat-input-full">
+                    <input type="text" id="chat-input" placeholder="Ask me anything..." aria-label="Type your message">
+                    <button id="send-btn" class="send-btn-full" aria-label="Send message">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <img 
+            src="./assets/arrow_light.png" 
+            src-light="./assets/arrow_light.png" 
+            src-dark="./assets/arrow_dark.png" 
+            alt="Arrow icon" 
+            class="icon arrow"
+            onclick="location.href='./#work-experience'">
+    </section>
+
+    <!-- WORK EXPERIENCE SECTION -->
+    <section id="work-experience" class="reveal">
+        <p class="section__text__p1">My Professional</p>
+        <h1 class="title">Work Experience</h1>
+        <div class="work-experience-header">
+            <a href="https://storyflight.vercel.app/" target="_blank" class="storyflight-link">
+                <span class="link-text">Click here for a ride</span>
+                <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+        <div class="work-experience-container">
+            <div class="timeline">
+                <!-- Enrollment Coordinator -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="work-header">
+                            <h3 class="work-title">Enrollment Coordinator</h3>
+                            <span class="work-period">Sep 2025 - Jan 2026</span>
+                        </div>
+                        <p class="work-company">Oxford International College, Halifax, NS</p>
+                        <ul class="work-responsibilities">
+                            <li>Managed 50+ daily client inquiries across phone, email, and in-person channels, ensuring timely issue resolution and high satisfaction</li>
+                            <li>Coordinated across admissions, sales, and operations teams to resolve system and process-related issues, ensuring seamless workflows</li>
+                            <li>Maintained CRM systems (HubSpot, Intrinsiq) and improved data accuracy by auditing records, strengthening system integrity and reporting reliability</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- President -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="work-header">
+                            <h3 class="work-title">President</h3>
+                            <span class="work-period">Nov 2024 - Apr 2025</span>
+                        </div>
+                        <p class="work-company">Acadia Students' Union, Wolfville, NS</p>
+                        <ul class="work-responsibilities">
+                            <li>Directed operations and systems for a $5M+ organization serving 4,000+ users, coordinating across multiple departments and stakeholders</li>
+                            <li>Translated complex stakeholder requirements into actionable operational and policy decisions, aligning business needs with execution</li>
+                            <li>Collaborated with government, executives, and partners to drive cross-functional initiatives, demonstrating strong communication in high-stakes environments</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Data Analyst Co-op -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="work-header">
+                            <h3 class="work-title">Data Analyst Co-op</h3>
+                            <span class="work-period">Apr 2024 - Dec 2024</span>
+                        </div>
+                        <p class="work-company">Acadia University, Wolfville, NS</p>
+                        <ul class="work-responsibilities">
+                            <li>Improved reporting speed by 20% across 4 enterprise dashboards by analyzing system workflows and optimizing SQL queries and ETL pipelines</li>
+                            <li>Translated business requirements into Power BI dashboards and data workflows, centralizing data from CRM (Orbis) and multiple databases into a single decision-making system</li>
+                            <li>Automated 5+ business processes using Python, reducing manual reporting from days to minutes and improving operational efficiency</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Teaching Assistant -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="work-header">
+                            <h3 class="work-title">Teaching Assistant</h3>
+                            <span class="work-period">Apr 2024 - Dec 2025</span>
+                        </div>
+                        <p class="work-company">Acadia University, Wolfville, NS</p>
+                        <ul class="work-responsibilities">
+                            <li>Supported 80+ students in debugging, APIs, and system logic, improving understanding of application workflows and technical concepts</li>
+                            <li>Conducted structured code reviews and troubleshooting sessions, improving system reliability and code quality across projects</li>
+                            <li>Assisted with full-stack and database integration issues, reinforcing client-server architecture and debugging practices</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- IT Helpdesk Support -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="work-header">
+                            <h3 class="work-title">IT Helpdesk Support</h3>
+                            <span class="work-period">Jan 2023 - Dec 2025</span>
+                        </div>
+                        <p class="work-company">Acadia University, Wolfville, NS</p>
+                        <ul class="work-responsibilities">
+                            <li>Resolved 20+ hardware, software, and network incidents per shift by diagnosing issues and applying troubleshooting techniques, ensuring minimal disruption to users across campus</li>
+                            <li>Supported enterprise systems by managing 10+ concurrent technical requests across operating systems, applications, email, and web platforms, improving response time and maintaining high user satisfaction</li>
+                            <li>Improved IT operations by documenting recurring issues, communicating solutions to technical and non-technical users, and escalating complex cases, contributing to faster incident resolution</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img 
+            src="./assets/arrow_light.png" 
+            src-light="./assets/arrow_light.png" 
+            src-dark="./assets/arrow_dark.png" 
+            alt="Arrow icon" 
+            class="icon arrow"
+            onclick="location.href='./#projects'">
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="reveal">
+        <p class="section__text__p1">Browse My Recent</p>
+        <h1 class="title">Projects</h1>
+        <div class="projects-slideshow-wrapper">
+            <button class="projects-nav projects-prev" aria-label="Previous project">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            <div class="projects-slideshow-container">
+                <div class="projects-slideshow">
+                    <!-- Project 1: StoryFlight -->
+                    <div class="project-slide">
+                        <div class="details-container color-container">
+                            <div class="article-container">
+                                <img src="./assets/project-storyflight.png" alt="StoryFlight project" class="project-img">
+                            </div>
+                            <h2 class="experience-sub-title project-title">StoryFlight</h2>
+                            <div class="btn-container">
+                                <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/yashgahlot'">Github</button>
+                                <button class="btn btn-color-2 project-btn" onclick="location.href='https://storyflight.vercel.app/'">Live Demo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 2: CityPulse -->
+                    <div class="project-slide">
+                        <div class="details-container color-container">
+                            <div class="article-container">
+                                <img src="./assets/project-citypulse.png" alt="CityPulse project" class="project-img">
+                            </div>
+                            <h2 class="experience-sub-title project-title">CityPulse</h2>
+                            <div class="btn-container">
+                                <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/yashgahlot'">Github</button>
+                                <button class="btn btn-color-2 project-btn" onclick="location.href='https://city-pulse-web-two.vercel.app/'">Live Demo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 3: Halifax Weather Mood -->
+                    <div class="project-slide">
+                        <div class="details-container color-container">
+                            <div class="article-container">
+                                <img src="./assets/project-1.png" alt="Halifax Weather Mood project" class="project-img">
+                            </div>
+                            <h2 class="experience-sub-title project-title">Halifax Weather Mood</h2>
+                            <div class="btn-container">
+                                <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/yashgahlot'">Github</button>
+                                <button class="btn btn-color-2 project-btn" onclick="location.href='https://halifax-weather-mood-ashy.vercel.app/'">Live Demo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 4: Sweetheart Strangers -->
+                    <div class="project-slide">
+                        <div class="details-container color-container">
+                            <div class="article-container">
+                                <img src="./assets/project-2.png" alt="Sweetheart Strangers project" class="project-img">
+                            </div>
+                            <h2 class="experience-sub-title project-title">Sweetheart Strangers</h2>
+                            <div class="btn-container">
+                                <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/yashgahlot/Valentines'">Github</button>
+                                <button class="btn btn-color-2 project-btn" onclick="location.href='https://sweetheart-strangers.netlify.app/'">Live Demo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 5: Get Me a Chai -->
+                    <div class="project-slide">
+                        <div class="details-container color-container">
+                            <div class="article-container">
+                                <img src="./assets/project-3.png" alt="Get Me a Chai project" class="project-img">
+                            </div>
+                            <h2 class="experience-sub-title project-title">Get Me a Chai / Coffee</h2>
+                            <div class="btn-container">
+                                <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/yashgahlot'">Github</button>
+                                <button class="btn btn-color-2 project-btn" onclick="location.href='https://getmechai-ivory.vercel.app/'">Live Demo</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="projects-nav projects-next" aria-label="Next project">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
+        </div>
+        <div class="projects-dots">
+            <span class="project-dot active" data-index="0"></span>
+            <span class="project-dot" data-index="1"></span>
+            <span class="project-dot" data-index="2"></span>
+            <span class="project-dot" data-index="3"></span>
+            <span class="project-dot" data-index="4"></span>
+        </div>
+        <img 
+            src="./assets/arrow_light.png" 
+            src-light="./assets/arrow_light.png" 
+            src-dark="./assets/arrow_dark.png" 
+            alt="Arrow icon" 
+            class="icon arrow"
+            onclick="location.href='./#experience'">
+    </section>
+
+    <!-- SKILLS SECTION -->
     <section id="experience" class="reveal">
         <p class="section__text__p1">Explore My</p>
         <h1 class="title">Skills</h1>
@@ -158,8 +454,6 @@
                     <div class="article-container">
                         <article>
                             <img src="./assets/checkmark.png" 
-                            src-light="./assets/checkmark_light.png"
-                            src-dark="./assets/checkmark_dark.png"
                             src-light="./assets/checkmark_light.png"
                             src-dark="./assets/checkmark_dark.png"
                             alt="Experience icon"
@@ -305,239 +599,10 @@
         src-dark="./assets/arrow_dark.png" 
         alt="Arrow icon" 
         class="icon arrow"
-        onclick="location.href='./#work-experience'">
+        onclick="location.href='./#contact'">
     </section>
 
-    <section id="work-experience" class="reveal">
-        <p class="section__text__p1">My Professional</p>
-        <h1 class="title">Work Experience</h1>
-        <div class="work-experience-header">
-            <a href="https://storyflight.vercel.app/" target="_blank" class="storyflight-link">
-                <span class="link-text">Click here for a ride</span>
-                <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-            </a>
-        </div>
-        <div class="work-experience-container">
-            <div class="timeline">
-                <!-- Enrollment Coordinator -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="work-header">
-                            <h3 class="work-title">Enrollment Coordinator</h3>
-                            <span class="work-period">Sep 2025 - Jan 2026</span>
-                        </div>
-                        <p class="work-company">Oxford International College, Halifax, NS</p>
-                        <ul class="work-responsibilities">
-                            <li>Managed 50+ daily client inquiries across phone, email, and in-person channels, ensuring timely issue resolution and high satisfaction</li>
-                            <li>Coordinated across admissions, sales, and operations teams to resolve system and process-related issues, ensuring seamless workflows</li>
-                            <li>Maintained CRM systems (HubSpot, Intrinsiq) and improved data accuracy by auditing records, strengthening system integrity and reporting reliability</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- President -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="work-header">
-                            <h3 class="work-title">President</h3>
-                            <span class="work-period">Nov 2024 - Apr 2025</span>
-                        </div>
-                        <p class="work-company">Acadia Students' Union, Wolfville, NS</p>
-                        <ul class="work-responsibilities">
-                            <li>Directed operations and systems for a $5M+ organization serving 4,000+ users, coordinating across multiple departments and stakeholders</li>
-                            <li>Translated complex stakeholder requirements into actionable operational and policy decisions, aligning business needs with execution</li>
-                            <li>Collaborated with government, executives, and partners to drive cross-functional initiatives, demonstrating strong communication in high-stakes environments</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Data Analyst Co-op -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="work-header">
-                            <h3 class="work-title">Data Analyst Co-op</h3>
-                            <span class="work-period">Apr 2024 - Dec 2024</span>
-                        </div>
-                        <p class="work-company">Acadia University, Wolfville, NS</p>
-                        <ul class="work-responsibilities">
-                            <li>Improved reporting speed by 20% across 4 enterprise dashboards by analyzing system workflows and optimizing SQL queries and ETL pipelines</li>
-                            <li>Translated business requirements into Power BI dashboards and data workflows, centralizing data from CRM (Orbis) and multiple databases into a single decision-making system</li>
-                            <li>Automated 5+ business processes using Python, reducing manual reporting from days to minutes and improving operational efficiency</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Teaching Assistant -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="work-header">
-                            <h3 class="work-title">Teaching Assistant</h3>
-                            <span class="work-period">Apr 2024 - Dec 2025</span>
-                        </div>
-                        <p class="work-company">Acadia University, Wolfville, NS</p>
-                        <ul class="work-responsibilities">
-                            <li>Supported 80+ students in debugging, APIs, and system logic, improving understanding of application workflows and technical concepts</li>
-                            <li>Conducted structured code reviews and troubleshooting sessions, improving system reliability and code quality across projects</li>
-                            <li>Assisted with full-stack and database integration issues, reinforcing client-server architecture and debugging practices</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <img 
-            src="./assets/arrow_light.png" 
-            src-light="./assets/arrow_light.png" 
-            src-dark="./assets/arrow_dark.png" 
-            alt="Arrow icon" 
-            class="icon arrow"
-            onclick="location.href='./#projects'">
-    </section>
-
-    <section id="projects" class="reveal">
-        <p class="section__text__p1">Browse My Recent</p>
-        <h1 class="title">Projects</h1>
-        <div class="experience-details-container">
-            <div class="about-containers">
-            <div class="details-container color-container">
-            <div class="article-container">
-                <img 
-                src="./assets/project-1.png" 
-                alt="project-1" 
-                class="project-img">
-            </div>
-            <h2 class="experience-sub-title project-title">Halifax Weather Mood</h2>
-            <div class="btn-container">
-                <button 
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/yashgahlot'">
-            Github
-        </button>
-        <button 
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://halifax-weather-mood-ashy.vercel.app/'">
-            Live Demo
-        </button>
-            </div>
-        </div>
-            <div class="details-container color-container">
-            <div class="article-container">
-                <img 
-                src="./assets/project-2.png" 
-                alt="project-1" 
-                class="project-img">
-            </div>
-            <h2 class="experience-sub-title project-title">Sweetheart Strangers</h2>
-            <div class="btn-container">
-                <button 
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/yashgahlot/Valentines'">
-            Github
-        </button>
-        <button 
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://sweetheart-strangers.netlify.app/'">
-            Live Demo
-        </button>
-            </div>
-        </div>
-            <div class="details-container color-container">
-            <div class="article-container">
-                <img 
-                src="./assets/project-3.png" 
-                alt="project-3" 
-                class="project-img">
-            </div>
-            <h2 class="experience-sub-title project-title">Get Me a Chai / Coffee </h2>
-            <div class="btn-container">
-                <button 
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/yashgahlot'">
-            Github
-        </button>
-        <button 
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://getmechai-ivory.vercel.app/'">
-            Live Demo
-        </button>
-            </div>
-        </div>
-    </div>
-</div>
-    <img 
-    src="./assets/arrow_light.png" 
-    src-light="./assets/arrow_light.png" 
-    src-dark="./assets/arrow_dark.png" 
-        alt="Arrow icon" 
-        class="icon arrow"
-        onclick="location.href='./#ai-assistant'">
-    </section>
-
-    <section id="ai-assistant" class="reveal">
-        <p class="section__text__p1">Chat with My</p>
-        <h1 class="title">AI Assistant</h1>
-        <div class="ai-section-container">
-            <div class="avatar-section">
-                <div id="avatar-container" class="avatar-container-full">
-                    <canvas id="avatar-canvas"></canvas>
-                    <div class="avatar-loading">Loading 3D Avatar...</div>
-                </div>
-                <div class="avatar-info">
-                    <h3>Yash's Digital Twin</h3>
-                    <p>Ask me anything - about Yash's experience, projects, or even personal questions!</p>
-                    <button id="voice-toggle" class="voice-toggle-btn" aria-label="Toggle voice responses">
-                        <svg class="voice-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                        </svg>
-                        <svg class="voice-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                            <line x1="23" y1="9" x2="17" y2="15"></line>
-                            <line x1="17" y1="9" x2="23" y2="15"></line>
-                        </svg>
-                        <span class="voice-label">Voice On</span>
-                    </button>
-                </div>
-            </div>
-            <div class="chat-section">
-                <div id="chat-messages" class="chat-messages-full">
-                    <div class="message assistant">
-                        <p>Hi there! I'm Yash's AI assistant. Ask me anything about his experience, skills, projects, or even personal questions - I'm powered by AI so I can have real conversations!</p>
-                    </div>
-                </div>
-                <div class="suggested-questions-full">
-                    <button class="suggestion-btn-full" data-question="What are Yash's main skills?">Skills</button>
-                    <button class="suggestion-btn-full" data-question="Tell me about Yash's work experience">Experience</button>
-                    <button class="suggestion-btn-full" data-question="What projects has Yash worked on?">Projects</button>
-                    <button class="suggestion-btn-full" data-question="What is Yash's educational background?">Education</button>
-                    <button class="suggestion-btn-full" data-question="What are Yash's hobbies and interests?">Interests</button>
-                    <button class="suggestion-btn-full" data-question="Why should I hire Yash?">Why Hire</button>
-                </div>
-                <div class="chat-input-full">
-                    <input type="text" id="chat-input" placeholder="Ask me anything..." aria-label="Type your message">
-                    <button id="send-btn" class="send-btn-full" aria-label="Send message">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="22" y1="2" x2="11" y2="13"></line>
-                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <img 
-            src="./assets/arrow_light.png" 
-            src-light="./assets/arrow_light.png" 
-            src-dark="./assets/arrow_dark.png" 
-            alt="Arrow icon" 
-            class="icon arrow"
-            onclick="location.href='./#contact'">
-    </section>
-
+    <!-- CONTACT SECTION -->
     <section id="contact" class="reveal">
         <p class="section__text__p1">Get in Touch</p>
         <h1 class="title">Contact Me</h1>
@@ -549,10 +614,7 @@
                 src-dark="./assets/email_dark.png" 
                 alt="Email icon" 
                 class="icon contact-icon email-icon">
-                <p><a 
-                    href="mailto:0308264g@acadiau.ca">
-                    0308264g@acadiau.ca</a>
-                </p>
+                <p><a href="mailto:0308264g@acadiau.ca">0308264g@acadiau.ca</a></p>
             </div>
             <div class="contact-info-container">
                 <img 
@@ -562,28 +624,26 @@
                 alt="My Linkedin Profile" 
                 class="icon LinkedIn-icon" 
                 onclick="location.href='https://www.linkedin.com/in/yashgahlot07/'">
-                <p><a 
-                    href="https://www.linkedin.com/in/yashgahlot07/">
-                    LinkedIn</a>
-                </p>
+                <p><a href="https://www.linkedin.com/in/yashgahlot07/">LinkedIn</a></p>
             </div>
         </div>
     </section>
-        <footer>
-            <nav>
-                <div class="nav-links-container">
-                    <ul class="nav-links">
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#experience">Skills</a></li>
-                        <li><a href="#work-experience">Work</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#ai-assistant">AI Chat</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </nav>
-            <p>Copyright &#169; 2024 Yash Gahlot. All Rights Reserved.</p>
-        </footer>
+
+    <footer>
+        <nav>
+            <div class="nav-links-container">
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#ai-assistant">AI Chat</a></li>
+                    <li><a href="#work-experience">Work</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <p>Copyright &#169; 2024 Yash Gahlot. All Rights Reserved.</p>
+    </footer>
 
     <script type="importmap">
     {

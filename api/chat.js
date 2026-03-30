@@ -7,8 +7,8 @@ const yashInfo = {
     summary: "Software Developer and IT professional with experience in web development, data analytics, and technical support. Recently graduated with a Bachelor of Computer Science from Acadia University. Former President of the Acadia Students' Union, representing over 4,000 students.",
     education: "Bachelor of Computer Science from Acadia University, Nova Scotia, Canada. Graduated January 2026.",
     skills: "HTML, CSS, SASS, JavaScript, TypeScript, MaterialUI, SQL, Node.js, Express.js, Git, Python, Java, Docker, MongoDB, MySQL, Power BI, AWS",
-    experience: "Enrollment Coordinator at Oxford International College; President of Acadia Students' Union (oversaw $5M+ org, 4000+ students); Data Analyst Co-op at Acadia University; Teaching Assistant",
-    projects: "StoryFlight (interactive storytelling platform), Halifax Weather Mood (React weather app), Sweetheart Strangers, Get Me a Chai (micro-payment platform)",
+    experience: "Enrollment Coordinator at Oxford International College; President of Acadia Students' Union (oversaw $5M+ org, 4000+ students); Data Analyst Co-op at Acadia University; Teaching Assistant; IT Helpdesk Support (resolved 20+ incidents per shift, supported enterprise systems)",
+    projects: "StoryFlight (interactive storytelling platform), CityPulse (real-time city operations intelligence), Halifax Weather Mood (React weather app), Sweetheart Strangers, Get Me a Chai (micro-payment platform)",
     interests: "Technology, software development, leadership, student advocacy, building products that simplify workflows",
     personality: {
         traits: "ambitious, curious, collaborative, driven",
