@@ -45,9 +45,73 @@
     .about-containers {
         margin-top: 0;
     }
+    /* About slideshow responsive */
+    .about-slideshow-wrapper {
+        width: 100%;
+        height: 100%;
+    }
+    .slideshow-dots {
+        bottom: -2rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .work-header {
+        flex-direction: column;
+    }
+    .work-period {
+        align-self: flex-start;
+    }
+    /* AI Section responsive */
+    .ai-section-container {
+        flex-direction: column;
+    }
+    .avatar-section {
+        flex: none;
+        width: 100%;
+    }
+    .avatar-container-full {
+        height: 300px;
+    }
 }
 
 @media screen and (max-width: 600px) {
+    .timeline {
+        padding-left: 1.5rem;
+    }
+    .timeline-item {
+        padding-left: 1rem;
+    }
+    .timeline-dot {
+        left: -1.5rem;
+        width: 12px;
+        height: 12px;
+    }
+    .timeline-content {
+        padding: 1rem;
+    }
+    .work-title {
+        font-size: 1.1rem;
+    }
+    .work-responsibilities li {
+        font-size: 0.9rem;
+    }
+    
+    /* AI Section mobile */
+    .avatar-container-full {
+        height: 250px;
+    }
+    .chat-messages-full {
+        min-height: 200px;
+        max-height: 300px;
+    }
+    .suggested-questions-full {
+        padding: 0.75rem 1rem;
+    }
+    .suggestion-btn-full {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
     #contact,
     footer {
         height: 40vh;
@@ -99,5 +163,31 @@
     }
     .text-container {
         text-align: justify;
+    }
+    /* About slideshow mobile */
+    .section__pic-container .slideshow-dots {
+        bottom: -2rem;
+    }
+    .slideshow-dots {
+        gap: 0.35rem;
+    }
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+    /* Projects slideshow mobile */
+    .projects-slideshow-wrapper {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .projects-nav {
+        width: 40px;
+        height: 40px;
+    }
+    .projects-prev, .projects-next {
+        display: none;
+    }
+    .project-slide .project-img {
+        height: 180px;
     }
 }
