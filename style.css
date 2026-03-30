@@ -479,6 +479,46 @@ article .icon {
   padding-bottom: 4rem;
 }
 
+.work-experience-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.storyflight-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--secondary-color), var(--secondary-color-2));
+  color: var(--primary-color);
+  text-decoration: none;
+  border-radius: 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.storyflight-link:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+}
+
+.storyflight-link .link-text {
+  color: var(--primary-color);
+}
+
+.storyflight-link .link-arrow {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.storyflight-link:hover .link-arrow {
+  transform: translateX(5px);
+}
+
 .work-experience-container {
   max-width: 900px;
   margin: 2rem auto;

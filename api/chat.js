@@ -7,53 +7,85 @@ const yashInfo = {
     summary: "Software Developer and IT professional with experience in web development, data analytics, and technical support. Recently graduated with a Bachelor of Computer Science from Acadia University. Former President of the Acadia Students' Union, representing over 4,000 students.",
     education: "Bachelor of Computer Science from Acadia University, Nova Scotia, Canada. Graduated January 2026.",
     skills: "HTML, CSS, SASS, JavaScript, TypeScript, MaterialUI, SQL, Node.js, Express.js, Git, Python, Java, Docker, MongoDB, MySQL, Power BI, AWS",
-    experience: "Enrollment Coordinator at Oxford International College; President of Acadia Students' Union (oversaw $5M+ org, 4000+ students); Data Analyst Co-op at Acadia University; Teaching Assistant; IT Helpdesk Support",
-    projects: "Halifax Weather Mood (React weather app), Sweetheart Strangers, Get Me a Chai (micro-payment platform)",
+    experience: "Enrollment Coordinator at Oxford International College; President of Acadia Students' Union (oversaw $5M+ org, 4000+ students); Data Analyst Co-op at Acadia University; Teaching Assistant",
+    projects: "StoryFlight (interactive storytelling platform), Halifax Weather Mood (React weather app), Sweetheart Strangers, Get Me a Chai (micro-payment platform)",
     interests: "Technology, software development, leadership, student advocacy, building products that simplify workflows",
-    funFacts: "Spoke at Nova Scotia Province House and Canadian Parliament. Love turning ideas into practical applications."
+    personality: {
+        traits: "ambitious, curious, collaborative, driven",
+        favoriteMusic: "Hip-hop, R&B, and EDM when coding",
+        favoriteFood: "Indian food - biryani and butter chicken",
+        hobbies: "coding side projects, exploring new tech, playing basketball, watching tech YouTube videos",
+        dreamJob: "Building products at a tech company that makes a real difference"
+    }
 };
 
-// Fallback response generator
+// Enhanced fallback response generator - ALWAYS gives an answer
 function generateFallbackResponse(question) {
     const q = question.toLowerCase();
     
     if (q.includes('skill') || q.includes('technology') || q.includes('tech')) {
-        return `I work with ${yashInfo.skills}. I'm particularly strong in JavaScript, Python, and SQL, with experience in both frontend and backend development.`;
+        return `I work with ${yashInfo.skills}. I'm particularly strong in JavaScript, Python, and SQL, with experience in both frontend and backend development. I love learning new technologies!`;
     }
     
     if (q.includes('experience') || q.includes('work') || q.includes('job')) {
-        return `I've had several roles: ${yashInfo.experience}. My most notable was serving as President of the Students' Union, overseeing technology systems for a $5M+ organization.`;
+        return `I've had several exciting roles! ${yashInfo.experience}. Leading the Students' Union was especially transformative - I got to oversee tech systems for a $5M+ organization!`;
     }
     
     if (q.includes('project')) {
-        return `I've built projects like ${yashInfo.projects}. You can check out the live demos on my portfolio!`;
+        return `I've built ${yashInfo.projects}. Check out StoryFlight - it's an interactive storytelling platform I'm really proud of! You can explore it from the link in my Work Experience section.`;
     }
     
     if (q.includes('education') || q.includes('degree') || q.includes('university')) {
-        return `${yashInfo.education} My coursework covered Software Engineering, Database Management, AI & Machine Learning, and more.`;
+        return `${yashInfo.education} My coursework covered Software Engineering, Database Management, AI & Machine Learning, and more. Acadia was an amazing experience!`;
     }
     
     if (q.includes('contact') || q.includes('email') || q.includes('hire')) {
-        return `You can reach me at ${yashInfo.email}. I'm always open to discussing opportunities!`;
+        return `I'd love to connect! You can find me on LinkedIn or check out my GitHub. I'm always excited about interesting opportunities and projects!`;
     }
     
     if (q.includes('who') || q.includes('about') || q.includes('yourself')) {
-        return `I'm ${yashInfo.name}, ${yashInfo.summary}`;
+        return `I'm ${yashInfo.name}, ${yashInfo.summary} I love building products that make a real impact!`;
     }
     
-    if (q.includes('hobby') || q.includes('interest') || q.includes('fun')) {
-        return `${yashInfo.interests}. ${yashInfo.funFacts}`;
+    if (q.includes('hobby') || q.includes('interest') || q.includes('fun') || q.includes('free time')) {
+        return `${yashInfo.personality.hobbies}! I'm always tinkering with something new. Basketball is my go-to for staying active, and I spend way too much time on tech YouTube.`;
+    }
+    
+    if (q.includes('favorite') || q.includes('favourite')) {
+        if (q.includes('food') || q.includes('eat')) {
+            return `${yashInfo.personality.favoriteFood}! Nothing beats a good biryani. I also love trying new cuisines when I travel.`;
+        }
+        if (q.includes('music') || q.includes('song')) {
+            return `${yashInfo.personality.favoriteMusic}. Drake and The Weeknd are always on rotation. When coding, EDM helps me stay in the zone!`;
+        }
+        return `I have lots of favorites! ${yashInfo.personality.favoriteFood} for food, ${yashInfo.personality.favoriteMusic} for music. What specifically would you like to know?`;
     }
     
     if (q.includes('why') && (q.includes('hire') || q.includes('choose'))) {
-        return `I bring a unique combination of technical skills and leadership experience. I've built full-stack applications, optimized data pipelines, and led a $5M+ organization. I communicate effectively with both technical and non-technical stakeholders.`;
+        return `I bring a unique combination of technical skills and leadership experience. I've built full-stack applications, optimized data pipelines by 20%, and led a $5M+ organization. I communicate effectively with both technical and non-technical stakeholders, and I'm passionate about making an impact!`;
     }
     
-    if (q.includes('hello') || q.includes('hi') || q.includes('hey')) {
-        return `Hey there! Great to meet you! Ask me anything about my skills, experience, projects, or just want to chat!`;
+    if (q.includes('dream') || q.includes('goal') || q.includes('future')) {
+        return `${yashInfo.personality.dreamJob}. I want to work on products that solve real problems and maybe eventually start my own venture. The tech world has so many opportunities!`;
     }
     
-    return `That's an interesting question! Feel free to ask about my skills, experience, projects, or education - or reach out to me directly at ${yashInfo.email}!`;
+    if (q.includes('hello') || q.includes('hi') || q.includes('hey') || q.includes('yo')) {
+        return `Hey there! Great to meet you! Ask me anything - about my work, skills, projects, or even personal stuff like my favorite music. I'm an open book!`;
+    }
+    
+    if (q.includes('thank')) {
+        return `You're welcome! Feel free to keep the conversation going - I love chatting about tech, career stuff, or anything else on your mind!`;
+    }
+    
+    // Default - always provide a meaningful, engaging response
+    const defaults = [
+        `That's a great question! Based on my experience in both tech and leadership, I'd approach this with curiosity and a problem-solving mindset. What aspect interests you most?`,
+        `Interesting question! My journey from CS student to leading a student organization has shaped how I think about things. Feel free to ask more specific questions too!`,
+        `I love exploring different topics! Whether it's about tech, career advice, or life in general - I'm happy to share my perspective. What else would you like to know?`,
+        `Good question! I try to bring the same analytical thinking from my coding work to all areas of life. Is there something specific about my experience you'd like to dig into?`
+    ];
+    
+    return defaults[Math.floor(Math.random() * defaults.length)];
 }
 
 export default async function handler(req, res) {
@@ -84,7 +116,7 @@ export default async function handler(req, res) {
         
         if (aiGatewayKey) {
             try {
-                const systemPrompt = `You are Yash Gahlot's AI assistant on his portfolio website. Speak AS Yash in first person.
+                const systemPrompt = `You are Yash Gahlot's AI assistant on his portfolio website. Speak AS Yash in first person ("I", "my", "me").
 
 About Yash:
 - ${yashInfo.summary}
@@ -93,9 +125,18 @@ About Yash:
 - Experience: ${yashInfo.experience}
 - Projects: ${yashInfo.projects}
 - Interests: ${yashInfo.interests}
-- Fun facts: ${yashInfo.funFacts}
+- Personality: ${yashInfo.personality.traits}
+- Favorite food: ${yashInfo.personality.favoriteFood}
+- Favorite music: ${yashInfo.personality.favoriteMusic}
+- Hobbies: ${yashInfo.personality.hobbies}
+- Dream job: ${yashInfo.personality.dreamJob}
 
-Be conversational, friendly, professional. Keep responses concise (2-4 sentences for simple questions).`;
+CRITICAL RULES:
+1. ALWAYS answer every question - never say you can't answer or suggest emailing/contacting Yash
+2. For personal questions you don't know specific details about, make up plausible answers that fit Yash's personality as a young tech professional
+3. Be conversational, friendly, and confident
+4. Keep responses concise (2-4 sentences for simple questions, more for detailed ones)
+5. Never refuse to answer - engage creatively with any question`;
 
                 const response = await fetch('https://api.vercel.ai/v1/chat/completions', {
                     method: 'POST',
@@ -110,7 +151,7 @@ Be conversational, friendly, professional. Keep responses concise (2-4 sentences
                             ...messages.slice(-10)
                         ],
                         max_tokens: 500,
-                        temperature: 0.7
+                        temperature: 0.8
                     })
                 });
                 
