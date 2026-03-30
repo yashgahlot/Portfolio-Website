@@ -338,13 +338,7 @@ section {
 }
 
 /* About Slideshow */
-.about-slideshow-container {
-  position: relative;
-  width: 400px;
-  height: 400px;
-}
-
-.about-slideshow {
+.about-slideshow-wrapper {
   position: relative;
   width: 100%;
   height: 100%;
@@ -374,7 +368,11 @@ section {
   gap: 0.5rem;
   margin-top: 1rem;
   flex-wrap: wrap;
-  max-width: 100%;
+  max-width: 400px;
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .dot {
@@ -389,6 +387,11 @@ section {
 .dot.active {
   background: var(--secondary-color);
   transform: scale(1.2);
+}
+
+#about .section__pic-container {
+  position: relative;
+  padding-bottom: 2rem;
 }
 
 .arrow {

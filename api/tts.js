@@ -26,7 +26,7 @@ export default async function handler(req, res) {
         }
         
         const response = await fetch(
-            `https://api.elevenlabs.io/v1/text-to-speech/${voiceId || 'dfOWEyUEznl4YQ7UkcIF'}`,
+            `https://api.elevenlabs.io/v1/text-to-speech/${voiceId || 'dfOWEyUEznl4YQ7UkcIF4'}`,
             {
                 method: 'POST',
                 headers: {

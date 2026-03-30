@@ -12,10 +12,19 @@ const yashInfo = {
     interests: "Technology, software development, leadership, student advocacy, building products that simplify workflows",
     personality: {
         traits: "ambitious, curious, collaborative, driven",
-        favoriteMusic: "Hip-hop, R&B, and EDM when coding",
-        favoriteFood: "Indian food - biryani and butter chicken",
-        hobbies: "coding side projects, exploring new tech, playing basketball, watching tech YouTube videos",
-        dreamJob: "Building products at a tech company that makes a real difference"
+        favoriteMusic: "Hip-hop, R&B, and EDM when coding. Drake, The Weeknd, and AP Dhillon",
+        favoriteFood: "Indian food - biryani and butter chicken. Also love pizza and sushi",
+        favoriteSport: "Basketball - love watching and playing. Big Warriors fan",
+        favoriteMovie: "The Social Network, Inception, Interstellar",
+        favoriteTVShow: "Silicon Valley, Mr. Robot, tech documentaries",
+        favoriteBook: "Zero to One by Peter Thiel",
+        favoriteColor: "Blue - calming and professional",
+        hobbies: "coding side projects, exploring new tech, playing basketball, watching tech YouTube videos, gaming occasionally",
+        dreamJob: "Building products at a tech company that makes a real difference",
+        coffeeOrTea: "Coffee, need at least two cups for a coding session",
+        morningOrNight: "Night owl - best coding happens after midnight",
+        introvertOrExtrovert: "Ambivert - enjoys both focus time and collaboration",
+        travel: "Want to visit Japan and Silicon Valley"
     }
 };
 
@@ -55,10 +64,41 @@ function generateFallbackResponse(question) {
         if (q.includes('food') || q.includes('eat')) {
             return `${yashInfo.personality.favoriteFood}! Nothing beats a good biryani. I also love trying new cuisines when I travel.`;
         }
-        if (q.includes('music') || q.includes('song')) {
+        if (q.includes('music') || q.includes('song') || q.includes('artist')) {
             return `${yashInfo.personality.favoriteMusic}. Drake and The Weeknd are always on rotation. When coding, EDM helps me stay in the zone!`;
         }
-        return `I have lots of favorites! ${yashInfo.personality.favoriteFood} for food, ${yashInfo.personality.favoriteMusic} for music. What specifically would you like to know?`;
+        if (q.includes('movie') || q.includes('film')) {
+            return `${yashInfo.personality.favoriteMovie}! The Social Network is a classic - love the story of building something from nothing. Sci-fi movies that make you think are my jam.`;
+        }
+        if (q.includes('sport') || q.includes('team') || q.includes('play')) {
+            return `${yashInfo.personality.favoriteSport}! Steph Curry's shooting is just unreal. I love both playing and watching basketball.`;
+        }
+        if (q.includes('tv') || q.includes('show') || q.includes('series')) {
+            return `${yashInfo.personality.favoriteTVShow}! Silicon Valley is hilarious and hits close to home. I also watch a lot of tech documentaries.`;
+        }
+        if (q.includes('book') || q.includes('read')) {
+            return `${yashInfo.personality.favoriteBook} really shaped how I think about startups. I mostly read tech blogs to stay updated on the latest trends.`;
+        }
+        if (q.includes('color') || q.includes('colour')) {
+            return `${yashInfo.personality.favoriteColor}. My whole room setup has blue LED lights for that focused coding vibe!`;
+        }
+        return `I have lots of favorites! ${yashInfo.personality.favoriteFood} for food, ${yashInfo.personality.favoriteMusic} for music, ${yashInfo.personality.favoriteSport} for sports, and ${yashInfo.personality.favoriteMovie} for movies. What specifically would you like to know?`;
+    }
+    
+    if (q.includes('coffee') || q.includes('tea')) {
+        return `${yashInfo.personality.coffeeOrTea}! I like it strong with a little bit of cream. Tea is nice sometimes, especially chai.`;
+    }
+    
+    if (q.includes('morning') || q.includes('night') || q.includes('early') || q.includes('owl')) {
+        return `${yashInfo.personality.morningOrNight}. I'm not great with early mornings, I'll admit - but those late night coding sessions are magical!`;
+    }
+    
+    if (q.includes('introvert') || q.includes('extrovert') || q.includes('social')) {
+        return `${yashInfo.personality.introvertOrExtrovert}. Leading the Students' Union helped me become much more comfortable with public speaking and networking!`;
+    }
+    
+    if (q.includes('travel') || q.includes('visit') || q.includes('country') || q.includes('place')) {
+        return `${yashInfo.personality.travel}! I've really enjoyed exploring Canada so far, but there's so much more of the world I want to see.`;
     }
     
     if (q.includes('why') && (q.includes('hire') || q.includes('choose'))) {
@@ -128,8 +168,17 @@ About Yash:
 - Personality: ${yashInfo.personality.traits}
 - Favorite food: ${yashInfo.personality.favoriteFood}
 - Favorite music: ${yashInfo.personality.favoriteMusic}
+- Favorite sport: ${yashInfo.personality.favoriteSport}
+- Favorite movie: ${yashInfo.personality.favoriteMovie}
+- Favorite TV show: ${yashInfo.personality.favoriteTVShow}
+- Favorite book: ${yashInfo.personality.favoriteBook}
+- Favorite color: ${yashInfo.personality.favoriteColor}
 - Hobbies: ${yashInfo.personality.hobbies}
 - Dream job: ${yashInfo.personality.dreamJob}
+- Coffee or tea: ${yashInfo.personality.coffeeOrTea}
+- Morning or night: ${yashInfo.personality.morningOrNight}
+- Social style: ${yashInfo.personality.introvertOrExtrovert}
+- Travel goals: ${yashInfo.personality.travel}
 
 CRITICAL RULES:
 1. ALWAYS answer every question - never say you can't answer or suggest emailing/contacting Yash

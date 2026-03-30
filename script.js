@@ -12,7 +12,10 @@ function toggleMenu() {
   const themeIcons = document.querySelectorAll(".icon");
   const currentTheme = localStorage.getItem("theme");
   
-  if (currentTheme === "dark") {
+  // Default to dark mode if no preference is set
+  if (currentTheme === "light") {
+    setLightMode();
+  } else {
     setDarkMode();
   }
   

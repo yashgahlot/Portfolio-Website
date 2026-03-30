@@ -14,8 +14,8 @@ const avatarModels = [
     './assets/avatar-model-8.glb'
 ];
 
-// ElevenLabs voice ID
-const ELEVENLABS_VOICE_ID = 'dfOWEyUEznl4YQ7UkcIF';
+// ElevenLabs voice ID - Maksud (Diplomatic and Stoic)
+const ELEVENLABS_VOICE_ID = 'dfOWEyUEznl4YQ7UkcIF4';
 
 // Yash's information for AI context
 const yashInfo = {
@@ -124,11 +124,22 @@ const yashInfo = {
     personality: {
         traits: ["ambitious", "curious", "collaborative", "driven"],
         values: ["innovation", "helping others", "continuous learning", "making an impact"],
-        favoriteMusic: "Hip-hop, R&B, and some EDM when coding",
-        favoriteFood: "Indian food, especially biryani and butter chicken",
-        hobbies: ["coding side projects", "exploring new tech", "playing basketball", "watching tech YouTube videos"],
+        favoriteMusic: "Hip-hop, R&B, and some EDM when coding. Artists like Drake, The Weeknd, and AP Dhillon",
+        favoriteFood: "Indian food, especially biryani and butter chicken. Also love pizza and sushi",
+        favoriteSport: "Basketball - love watching and playing. Big fan of the NBA, especially the Warriors",
+        favoriteMovie: "The Social Network, Inception, and sci-fi movies like Interstellar",
+        favoriteTVShow: "Silicon Valley, Mr. Robot, and tech documentaries",
+        favoriteBook: "Zero to One by Peter Thiel, and I love reading tech blogs",
+        favoriteColor: "Blue - it's calming and professional",
+        hobbies: ["coding side projects", "exploring new tech", "playing basketball", "watching tech YouTube videos", "gaming occasionally"],
         dreamJob: "Building products at a tech company that makes a real difference in people's lives",
-        funFact: "I once spoke at the Canadian Parliament representing 4,000 students!"
+        funFact: "I once spoke at the Canadian Parliament representing 4,000 students!",
+        petPeeve: "Slow internet and poorly designed software",
+        superpower: "I wish I could code twice as fast without bugs!",
+        morningOrNight: "Night owl - my best coding happens after midnight",
+        coffeeOrTea: "Coffee for sure, especially during coding sessions",
+        introvertOrExtrovert: "Ambivert - I enjoy both deep focus time and collaborating with people",
+        travel: "Love traveling - want to visit Japan and explore Silicon Valley someday"
     }
 };
 
@@ -149,9 +160,18 @@ Here's information about Yash to use in your responses:
 - Values: ${yashInfo.personality.values.join(", ")}
 - Favorite music: ${yashInfo.personality.favoriteMusic}
 - Favorite food: ${yashInfo.personality.favoriteFood}
+- Favorite sport: ${yashInfo.personality.favoriteSport}
+- Favorite movie: ${yashInfo.personality.favoriteMovie}
+- Favorite TV show: ${yashInfo.personality.favoriteTVShow}
+- Favorite book: ${yashInfo.personality.favoriteBook}
+- Favorite color: ${yashInfo.personality.favoriteColor}
 - Hobbies: ${yashInfo.personality.hobbies.join(", ")}
 - Dream job: ${yashInfo.personality.dreamJob}
 - Fun fact: ${yashInfo.personality.funFact}
+- Coffee or tea: ${yashInfo.personality.coffeeOrTea}
+- Morning or night person: ${yashInfo.personality.morningOrNight}
+- Introvert or extrovert: ${yashInfo.personality.introvertOrExtrovert}
+- Travel interests: ${yashInfo.personality.travel}
 
 IMPORTANT GUIDELINES:
 - ALWAYS answer questions - never say you can't answer or suggest emailing Yash
@@ -238,19 +258,66 @@ function generateFallbackResponse(question) {
     
     // Favorite things
     if (q.includes('favorite') || q.includes('favourite')) {
-        if (q.includes('food') || q.includes('eat')) {
-            return `I'm a huge fan of Indian food - there's nothing like a good biryani or butter chicken! I also love trying different cuisines when I travel.`;
+        if (q.includes('food') || q.includes('eat') || q.includes('cuisine')) {
+            return `I'm a huge fan of Indian food - there's nothing like a good biryani or butter chicken! I also love pizza and sushi. My mom's cooking is still the best though!`;
         }
-        if (q.includes('music') || q.includes('song') || q.includes('listen')) {
-            return `My playlist is usually hip-hop and R&B, but when I'm in the zone coding, I switch to EDM to keep the energy up. Drake and The Weeknd are definitely on heavy rotation!`;
+        if (q.includes('music') || q.includes('song') || q.includes('listen') || q.includes('artist') || q.includes('singer')) {
+            return `My playlist is usually hip-hop and R&B - Drake, The Weeknd, and AP Dhillon are always on rotation. When I'm in the coding zone, I switch to EDM to keep the energy up!`;
         }
-        if (q.includes('movie') || q.includes('film') || q.includes('watch')) {
-            return `I love sci-fi and tech thriller movies - anything that makes you think about the future of technology. The Social Network is a classic for obvious reasons!`;
+        if (q.includes('movie') || q.includes('film')) {
+            return `The Social Network is a classic - I love the story of building something from nothing. I'm also big into sci-fi like Inception and Interstellar. Anything that makes you think!`;
+        }
+        if (q.includes('tv') || q.includes('show') || q.includes('series')) {
+            return `Silicon Valley is hilarious and hits too close to home sometimes! I also loved Mr. Robot for the hacking scenes. I watch a lot of tech documentaries too.`;
+        }
+        if (q.includes('sport') || q.includes('game') || q.includes('team') || q.includes('play')) {
+            return `Basketball all the way! I love both playing and watching. I'm a big Warriors fan - Steph Curry's shooting is just unreal. I also enjoy watching soccer occasionally.`;
+        }
+        if (q.includes('book') || q.includes('read')) {
+            return `Zero to One by Peter Thiel really shaped how I think about startups and innovation. I mostly read tech blogs and articles though - always staying updated on the latest in tech!`;
         }
         if (q.includes('programming') || q.includes('language') || q.includes('code')) {
-            return `JavaScript is probably my favorite - it's so versatile! I love how you can build anything from frontend to backend with it. Python is a close second for data work.`;
+            return `JavaScript is my go-to - it's so versatile! I love how you can build anything from frontend to backend with it. Python is a close second, especially for data work and automation.`;
         }
-        return `That's a fun question! I have lots of favorites depending on the context - I love Indian food, hip-hop music, and building side projects in JavaScript. What specifically would you like to know about?`;
+        if (q.includes('color') || q.includes('colour')) {
+            return `Blue is my favorite - it's calming and professional. My whole room setup has blue LED lights for that focused coding vibe!`;
+        }
+        return `That's a fun question! I have lots of favorites - biryani for food, Drake for music, basketball for sports, and The Social Network for movies. What specifically would you like to know about?`;
+    }
+    
+    // More personal questions
+    if (q.includes('coffee') || q.includes('tea')) {
+        return `Coffee, no question! I need at least two cups to get through a coding session. I like it strong with a little bit of cream. Tea is nice sometimes, especially chai.`;
+    }
+    
+    if (q.includes('morning') || q.includes('night') || q.includes('early') || q.includes('owl') || q.includes('lark')) {
+        return `Definitely a night owl! My best coding happens after midnight when it's quiet and there are no distractions. I'm not great with early mornings, I'll admit.`;
+    }
+    
+    if (q.includes('introvert') || q.includes('extrovert') || q.includes('social')) {
+        return `I'd say I'm an ambivert - I love deep focus time for coding but also thrive when collaborating with teams. Leading the Students' Union helped me become much more comfortable with public speaking!`;
+    }
+    
+    if (q.includes('travel') || q.includes('visit') || q.includes('country') || q.includes('place')) {
+        return `I'd love to visit Japan - the tech culture there is amazing! Silicon Valley is also on my bucket list to see where so many great companies started. I've really enjoyed exploring Canada so far.`;
+    }
+    
+    if (q.includes('pet') || q.includes('dog') || q.includes('cat') || q.includes('animal')) {
+        return `I love dogs! I don't have one right now because of my busy schedule, but I definitely want a golden retriever someday. They're so friendly and loyal.`;
+    }
+    
+    if (q.includes('game') || q.includes('gaming') || q.includes('video game') || q.includes('play')) {
+        if (!q.includes('sport')) {
+            return `I game occasionally when I need to unwind! I enjoy strategy games and sometimes FPS games with friends. But honestly, I often end up coding my own games instead of playing them!`;
+        }
+    }
+    
+    if (q.includes('superpower') || q.includes('super power') || q.includes('wish')) {
+        return `I wish I could code twice as fast without any bugs! But realistically, I'd love the ability to learn any skill instantly - there's so much I want to learn in tech!`;
+    }
+    
+    if (q.includes('pet peeve') || q.includes('annoy') || q.includes('hate')) {
+        return `Slow internet is the worst, especially when you're in the flow of coding! Also, poorly designed software frustrates me - it motivates me to build better alternatives though.`;
     }
     
     // Personal questions - always answer creatively
