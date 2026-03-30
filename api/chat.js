@@ -48,7 +48,7 @@ function generateFallbackResponse(question) {
         return `${yashInfo.education} My coursework covered Software Engineering, Database Management, AI & Machine Learning, and more. Acadia was an amazing experience!`;
     }
     
-    if (q.includes('contact') || q.includes('email') || q.includes('hire')) {
+    if (q.includes('contact') || q.includes('email')) {
         return `I'd love to connect! You can find me on LinkedIn or check out my GitHub. I'm always excited about interesting opportunities and projects!`;
     }
     
