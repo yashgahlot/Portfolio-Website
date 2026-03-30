@@ -15,7 +15,7 @@ const avatarModels = [
 ];
 
 // ElevenLabs voice ID - Josh (Conversational and Engaging)
-const ELEVENLABS_VOICE_ID = 'TxGEqnHWrfWFTfGW9XjX';
+const ELEVENLABS_VOICE_ID = 'dfOWEyUEznl4YQ7UkcIF';
 
 // Yash's information for AI context
 const yashInfo = {
