@@ -47,7 +47,59 @@
     }
 }
 
+@media screen and (max-width: 900px) {
+    .work-header {
+        flex-direction: column;
+    }
+    .work-period {
+        align-self: flex-start;
+    }
+}
+
 @media screen and (max-width: 600px) {
+    .timeline {
+        padding-left: 1.5rem;
+    }
+    .timeline-item {
+        padding-left: 1rem;
+    }
+    .timeline-dot {
+        left: -1.5rem;
+        width: 12px;
+        height: 12px;
+    }
+    .timeline-content {
+        padding: 1rem;
+    }
+    .work-title {
+        font-size: 1.1rem;
+    }
+    .work-responsibilities li {
+        font-size: 0.9rem;
+    }
+    
+    /* Chat widget mobile */
+    .chat-widget {
+        bottom: 1rem;
+        right: 1rem;
+    }
+    .chat-toggle {
+        width: 54px;
+        height: 54px;
+    }
+    .chat-container {
+        width: calc(100vw - 2rem);
+        max-width: 380px;
+        max-height: 70vh;
+        bottom: 70px;
+        right: 0;
+    }
+    .avatar-container {
+        height: 140px;
+    }
+    .chat-messages {
+        max-height: 150px;
+    }
     #contact,
     footer {
         height: 40vh;
